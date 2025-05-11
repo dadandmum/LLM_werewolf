@@ -7,14 +7,14 @@ This is a project shows a group of LLM agents to play werewolf game.
 
 ##  Install package 
 
-'''
+```
 pip install openai
 pip install numpy
 pip install filelock
 pip install wordcloud
 pip install matplotlib
 pip install sentence_transformers
-'''
+```
 
 ##  Set API key
 1. Apply and Access API key from openai (https://platform.openai.com/account/api-keys) , qwen(https://help.aliyun.com/zh/model-studio/use-qwen-by-calling-api)
