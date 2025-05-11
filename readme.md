@@ -20,12 +20,10 @@ pip install sentence_transformers
 1. Apply and Access API key from openai (https://platform.openai.com/account/api-keys) , qwen(https://help.aliyun.com/zh/model-studio/use-qwen-by-calling-api)
 
 2. Set API key in the file `scripts/lib/keys_manager.py` as follows:
-'''
 
+```
     OPEN_AI_KEY = "YOUR OPENAI API KEY"
-
-    ALI_API_KEY = "YOUR QWEN API KEY"
-
+    ALI_API_KEY = "YOUR QWEN API KEY" 
 ```
 
 ## Run a werewolf game
@@ -36,3 +34,5 @@ pip install sentence_transformers
 # Reference
 ## OpenAI
 https://platform.openai.com/docs/api-reference/chat/create
+## Qwen
+https://help.aliyun.com/zh/dashscope/developer-reference/api-details
