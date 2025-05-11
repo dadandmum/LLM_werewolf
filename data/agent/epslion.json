@@ -1,0 +1,8 @@
+{
+    "id":"epslion",
+    "name":"Epslion",
+    "default":"Epslion is a good man.",
+    "description":"Epslion is a bad man.",
+    "temperature" : 1.0,
+    "language":"EN"
+}

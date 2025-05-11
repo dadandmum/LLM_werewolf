@@ -1,0 +1,20 @@
+generate_dialog.txt
+
+
+!<INPUT NAME>! agent name 
+!<INPUT MISSION>! mission information, tells what to do and how to do in the mission 
+!<INPUT DIALOG_MEMORY>! previous dialogs 
+!<INPUT LIMIT_WORD>! limit number of words
+
+<comment>###<comment>
+You are !<INPUT NAME>!.
+!<INPUT AGENTS>!
+!<INPUT MISSION>!
+!<INPUT DIALOG_MEMORY>!
+!<INPUT AGENT_FAVORS>!
+!<INPUT NEXT_STRATEGY>!
+
+You are !<INPUT NAME>!.
+Please response to the game, in your personal tone, in English, with no more than !<INPUT LIMIT_WORD>! words.
+
+!<INPUT NAME>!:"

@@ -1,0 +1,9 @@
+{
+    "id":"delta",
+    "name":"Delta",
+    "infdefaulto":"Delta is a good man.",
+    "description":"Delta is a bad man.",
+    "temperature" : 1.0,
+    "language":"EN"
+
+}

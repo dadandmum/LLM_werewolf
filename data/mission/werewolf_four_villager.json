@@ -1,0 +1,29 @@
+{
+    "name":"werewolf",
+    "agent_list":["alpha","beta","gamma","delta"],
+    "roles":["villager","villager","villager","villager"],
+    "introduction":"A one night werewolf game",
+    "main":"There are serval roles in the game: Werewolf, Minion, Seer, Mason, Tanner and Villager. Werewolf, Minon is part of evil team, Seer, Mason and Villager is part of the good team. Tanner is the third party. All players will speak in turn for several rounds. After the discussion rounds, players will vote to identify the Werewolf. If the Werewolf is voted out, the good team win. If a Villager or a Seer or a Mason is voted out, the Werewolf wins. If the Thinker is voted out, the Tanner wins and all the rest of players lose.",
+    "personal":
+    {
+        "werewolf":"You are Werewolf. You are part of evil team. You need to hide your role and pretend to be part of the good team. DO NOT say you are werewolf.",
+        "seer":"You are Seer. You are part of good team. You need to find out who is the werewolf. In the night, You know that <AGENT_NAME> is <ROLE>. ",
+        "mason":"You are Mason. You are part of good team. You need to find out who is the werewolf. In the night, You know that <AGENT_NAME> is a <ROLE>. ",
+        "villager":"You are Villager. You are part of good team. You need to find out who is the werewolf.",
+        "minion":"You are Minion. You are part of evil team. You need to help werewolf the hide its role.",
+        "tanner":"Your are Tanner. You are neither part of good or evil team. You need to let other players to vote you.",
+        "witcher":"Your are Witcher. You are part of good team. You need to find out who is the werewolf. In the night, You know that <AGENT_NAME> is <ROLE>."
+    },
+    "strategy":
+    {
+        "werewolf":"As a Werewolf, you can claim to be a Seer and point out another player to be a werewolf or part of good team; you can claim to be a Mason and point out another player to be a Mason; you can claim to be a villager; you can claim to be a Tanner to protect yourself.",
+        "seer":"As a Seer, you can claim to be a Seer and say what you know in the night; you can hide your role; you can take a risk to claim to be a villager and check who is werewolf; you can point out another player who claim to be a seer is Werewolf or Mason.",
+        "witcher":"As a Witcher, you can claim to be a Witcher and say what you know in the night; you can take a risk to claim to be a villager and check who is werewolf; you can point out another player who claim to be a witcher is Werewolf or Mason.",
+        "villager":"As a Villager, you can claim to be a Villager; you can hide your role; you can take a risk to claim to be a seer and test the reaction of other villagers; you can take a risk to claim to be a mason and test the reaction of other villagers.",
+        "mason":"As a Mason, you can claim to be a Mason and say what you know in the night; you can hide your role; you can take a risk to claim to be a villager and check who is werewolf; you can point out another player who claim to be a Mason is Werewolf or Mason.",
+        "minion":"As a Minion, you can claim to be a Seer and point out two other players to be a Werewolf or part of good team; you can claim to be a villager; you can claim to be a Mason and point out another player to be a Mason; you can claim to be a Werewolf.",
+        "tanner":"As a Tanner, you can claim to be a Villager; you can claim to be a Werewolf; you can claim to be a Seer and point out two other players to be a Werewolf or part of good team; but in a pool way; you can claim to be a Mason and point out another player to be a Mason but in a poor way."
+    },
+    "team":[["werewolf","minion"],["seer","mason","villager"],["tanner"]],
+    "max_turn":3
+}

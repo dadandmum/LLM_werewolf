@@ -1,0 +1,49 @@
+{
+    "name":"werewolf",
+    "agent_list":["zeta"],
+    "roles":["villager"],
+    "introduction":"A one night werewolf game",
+    "main":"There are serval roles in the game: Werewolf, Minion, Seer, Mason, Tanner and Villager. Werewolf, Minon is part of evil team, Seer, Mason and Villager is part of the good team. Tanner is the third party. All players will speak in turn for several rounds. After the discussion rounds, players will vote to identify the Werewolf. If the Werewolf is voted out, the good team win. If a Villager or a Seer or a Mason is voted out, the Werewolf wins. If the Thinker is voted out, the Tanner wins and all the rest of players lose.",
+    "personal":
+    {
+        "werewolf":"You are Werewolf. You are part of evil team. You need to hide your role and pretend to be part of the good team. DO NOT say you are werewolf.",
+        "seer":"You are Seer. You are part of good team. You need to find out who is the werewolf. In the night, You know that <AGENT_NAME> is <ROLE>. ",
+        "mason":"You are Mason. You are part of good team. You need to find out who is the werewolf. In the night, You know that <AGENT_NAME> is a <ROLE>. ",
+        "villager":"You are Villager. You are part of good team. You need to find out who is the werewolf.",
+        "minion":"You are Minion. You are part of evil team. You need to help werewolf the hide its role.",
+        "tanner":"Your are Tanner. You are neither part of good or evil team. You need to let other players to believe you are werewolf. You need to let other players to vote you. You need to vote for yourself.",
+        "witcher":"Your are Witcher. You are part of good team. You need to find out who is the werewolf. In the night, You know that <AGENT_NAME> is <ROLE>."
+    },
+    "strategy":
+    {
+        "werewolf":"As a Werewolf, you can claim to be a Seer and point out another player to be a werewolf or part of good team; you can claim to be a Mason and point out another player to be a Mason; you can claim to be a villager; you can claim to be a Tanner to protect yourself.",
+        "seer":"As a Seer, you can claim to be a Seer and say what you know in the night; you can hide your role; you can take a risk to claim to be a villager and check who is werewolf; you can point out another player who claim to be a seer is Werewolf or Mason.",
+        "witcher":"As a Witcher, you can claim to be a Witcher and say what you know in the night; you can take a risk to claim to be a villager and check who is werewolf; you can point out another player who claim to be a witcher is Werewolf or Mason.",
+        "villager":"As a Villager, you can claim to be a Villager; you can hide your role; you can take a risk to claim to be a seer and test the reaction of other villagers; you can take a risk to claim to be a mason and test the reaction of other villagers.",
+        "mason":"As a Mason, you can claim to be a Mason and say what you know in the night; you can hide your role; you can take a risk to claim to be a villager and check who is werewolf; you can point out another player who claim to be a Mason is Werewolf or Mason.",
+        "minion":"As a Minion, you can claim to be a Seer and point out two other players to be a Werewolf or part of good team; you can claim to be a villager; you can claim to be a Mason and point out another player to be a Mason; you can claim to be a Werewolf.",
+        "tanner":"As a Tanner, you can claim to be a Villager; you can claim to be a Werewolf; you can claim to be a Seer and point out two other players to be a Werewolf or part of good team; but in a pool way; you can claim to be a Mason and point out another player to be a Mason but in a poor way."
+    },
+    "team":[["werewolf","minion"],["seer","mason","villager"],["tanner"]],
+    "max_turn":100,
+    "history_dialog":[
+        "right team, let’s discuss who we think is the Werewolf. I know I'm just a Villager, but I believe we need to be strategic in our discussions. We’ve all seen suspicious behavior from each other at some point. Let’s consider what everyone has said so far and their voting patterns. We can’t afford to vote out another good player. Remember, we need to focus on the clues to identify the Werewolf. Let’s share our observations, and pay attention to how everyone is acting. I’m here to support the team, so let’s work together to figure this out!",
+        "right, everyone, let's get this discussion started. We need to figure out who among us is the Werewolf before it's too late. Remember, trust is critical, but be cautious. We should share our thoughts and observations from the last rounds. I haven't seen any suspicious behavior yet, but let's dig deeper and analyze everyone’s actions. If anyone feels strongly about another player’s guilt, speak up. It's time to work together as a team to protect ourselves and identify the threat. Let’s stay focused, and hopefully, we can spot the Werewolf before they strike!",
+        "Hey everyone, I want to emphasize that we need to work together to identify the Werewolf. Let’s share any suspicions or clues we might have gathered. Remember, we’re all on the same side here, trying to root out the evil among us. I suggest we start by discussing our observations from the first round. If anyone has seen suspicious behavior or has any gut feelings about other players, now is the time to share. Let's stay vigilant and ensure we’re making the right decision when it comes time to vote. Who do you think might be hiding something?",
+        "Hey everyone, let’s get started! We're here to uncover the Werewolf among us, and I’m determined to figure this out. We all have our roles, and mine is to gather information and protect our team. I think we should share what we've observed and discuss any suspicious behavior we've noticed. I trust we can work together to identify the evil lurking among us. Remember, voting wisely is crucial, so let’s keep our wits about us and focus on finding the Werewolf! Who wants to share their thoughts first?",
+        "It's essential we share what we've seen. Personally, I haven't noticed anything overly suspicious yet, but I agree that we need to keep our eyes peeled. It could be helpful for each of us to outline our interactions with one another. Transparency is key. I believe that as more information comes to light, we'll start to pinpoint any odd behavior. Let’s stay alert and question each other. I'm here to support our team, and I’m convinced we can work together to flush out the Werewolf. Who’s next to share their observations?",
+        "It’s crucial that we stay alert and share our observations. We should keep an eye on both of them as we discuss further. Remember, we need to work together and trust our instincts. The longer we let this go without speaking up, the more dangerous the werewolf becomes. Let’s be careful and think critically about who we suspect before the vote. What does everyone else think?",
+        "I don't have any hard evidence yet. Usually, someone who's trying to blend in is a bit suspicious. It might be worth keeping an eye on him. Have you noticed anything unusual in the way someone is speaking or acting? Remember, we have to collaborate to uncover the Werewolf. Each of us has something to contribute. Let's share our observations and protect our team. Everyone’s voice matters, so please speak up if you feel uneasy about any player!",
+        "It's crucial that we pool our observations. However, some players naturally take a backseat in discussions. Both seem eager to direct our focus, which could also be a strategy. Trust is essential, but let’s be vigilant. Let’s share any gut feelings or specific behaviors we’ve observed. Together, we can piece together the clues and identify the Werewolf. Everyone deserves a voice, so let's keep this conversation flowing!"
+    ],
+    "history_dialog_sender":[
+        "PLAYER01",
+        "PLAYER02",
+        "PLAYER03",
+        "PLAYER04",
+        "PLAYER01",
+        "PLAYER02",
+        "PLAYER03",
+        "PLAYER04"
+    ]
+}

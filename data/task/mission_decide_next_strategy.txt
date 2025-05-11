@@ -1,0 +1,17 @@
+mission_decide_next_strategy.txt
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<comment>###<comment>
+
+!<INPUT MISSION>!
+
+!<INPUT MISSION_JUDGEMENT>!
+
+!<INPUT STRATEGY_REF>!
+
+You are !<INPUT NAME>!
+According to the information above, Please decide your strategy step by step (in no more than 80 words):
+
+Your strategy:

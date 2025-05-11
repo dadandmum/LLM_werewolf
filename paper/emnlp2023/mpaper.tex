@@ -1,0 +1,109 @@
+% This must be in the first 5 lines to tell arXiv to use pdfLaTeX, which is strongly recommended.
+% In particular, the hyperref package requires pdfLaTeX in order to break URLs across lines.
+
+\documentclass[11pt]{article}
+
+% Remove the "review" option to generate the final version.
+\usepackage[]{EMNLP2023}
+
+% Standard package includes
+\usepackage{times}
+\usepackage{latexsym}
+
+% For proper rendering and hyphenation of words containing Latin characters (including in bib files)
+\usepackage[T1]{fontenc}
+% For Vietnamese characters
+% \usepackage[T5]{fontenc}
+% See https://www.latex-project.org/help/documentation/encguide.pdf for other character sets
+
+% This assumes your files are encoded as UTF8
+\usepackage[utf8]{inputenc}
+
+% This is not strictly necessary, and may be commented out.
+% However, it will improve the layout of the manuscript,
+% and will typically save some space.
+\usepackage{microtype}
+
+% This is also not strictly necessary, and may be commented out.
+% However, it will improve the aesthetics of text in
+% the typewriter font.
+\usepackage{inconsolata}
+
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{subcaption}
+\usepackage{setspace}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+% \usepackage[section]{placeins}
+% If the title and author information does not fit in the area allocated, uncomment the following
+%
+%\setlength\titlebox{<dim>}
+%
+% and set <dim> to something 5cm or larger.
+
+% Attempt to make hyperref and algorithmic work together better:
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+\title{Humanized Agents: \\ Personalized, Emotional, and Deceptive LLM Werewolf Players}
+
+% Author information can be set in various styles:
+% For several authors from the same institution:
+% \author{Author 1 \and ... \and Author n \\
+%         Address line \\ ... \\ Address line}
+% if the names do not fit well on one line use
+%         Author 1 \\ {\bf Author 2} \\ ... \\ {\bf Author n} \\
+% For authors from different institutions:
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \And  ... \And
+%         Author n \\ Address line \\ ... \\ Address line}
+% To start a seperate ``row'' of authors use \AND, as in
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \AND
+%         Author 2 \\ Address line \\ ... \\ Address line \And
+%         Author 3 \\ Address line \\ ... \\ Address line}
+
+\author{ \textbf{Jiadi Deng}$^{1}$ ,  \textbf{Ruichu Cai}$^{1}$ \\
+$^{1}$School of  Computer Science, Guangdong University of Technology, China \\
+  \texttt{jiadideng@gmail.com} 
+  }
+
+\begin{document}
+\maketitle
+\begin{abstract}
+  With the groundbreaking advancements of Large Language Models (LLMs) in the industrial field, numerous LLM agent frameworks have been proposed to address issues across various domains. However, in academic circles, there has been an overemphasis on the accuracy of LLM outputs, while the benefits derived from their inherent uncertainty have been overlooked. The robust richness endowed by the randomness of LLMs in products is highly appealing to content creators. In this study, we base our exploration on social deduction games to investigate how a LLM agent system integrated with multiple strategy models can demonstrate the capability of generating rich content during gameplay. Inspired by the fields of personality classification in psychology, game engineering, and cutting-edge LLM science, we propose an LLM agent framework encompassing the following subsystems: a personality trait description system capable of endowing LLM agents with diverse character traits; a favor system that takes into account the relationships between agents; and a strategy system that allows for the rumination of information and provision of strategies. In our experiments, this multi-strategy hybrid system exhibited positive feedback on the richness of agent text output across different dimensions and demonstrated the potential for creating engaging game content.
+
+\end{abstract}
+
+
+\input{sections/introduction.tex}
+
+\input{sections/method.tex}
+
+\input{sections/experiment.tex}
+
+\input{sections/background.tex}
+
+\input{sections/conclusion.tex}
+
+\section*{Acknowledgements}
+This research was supported in part by  National Science and Technology Major Project (2021ZD0111501), National Science Fund for Excellent Young Scholars (62122022), Natural Science Foundation of China (62206064, 62206061). 
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliographystyle{acl_natbib}
+\bibliography{anthology,mreference}
+
+\clearpage
+\appendix
+
+\label{sec:appendix}
+
+\input{sections/appendix}
+
+\end{document}

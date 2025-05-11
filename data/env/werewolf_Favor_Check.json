@@ -1,0 +1,12 @@
+{
+    "mission":"werewolfFavor",
+    "session":"werewolf_Favor_Check",
+    "cover_old_session":false,
+    "settings":{
+        "USE_MISSION_JUDGE":false,
+        "UES_RANDOM_BIG_FIVE":false,
+        "USE_FAVOR":true,
+        "USE_NEXT_STRATEGY":false,
+        "USE_ANALYZE":true
+    }
+}

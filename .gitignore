@@ -1,0 +1,26 @@
+# Compiled files / Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.log
+*.sqlite3
+*.sqlite
+
+# Python
+*.pyc
+*.pyo
+*.pyd
+
+# PyCharm
+.idea/
+
+# VSCode
+.vscode/
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.test

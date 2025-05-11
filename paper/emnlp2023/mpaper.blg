@@ -1,0 +1,57 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: mpaper.aux
+The style file: acl_natbib.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: anthology.bib
+Database file #2: mreference.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Warning--can't use both volume and number fields in booch2021thinking
+Warning--missing publisher in daniel2017thinking
+Warning--can't use both volume and number fields in riedl2012interactive
+Warning--can't use both volume and number fields in zhao2024expel
+You've used 62 entries,
+            3571 wiz_defined-function locations,
+            1017 strings with 18864 characters,
+and the built_in function-call counts, 50613 in all, are:
+= -- 3972
+> -- 3354
+< -- 35
++ -- 1088
+- -- 1008
+* -- 3563
+:= -- 7711
+add.period$ -- 250
+call.type$ -- 62
+change.case$ -- 659
+chr.to.int$ -- 62
+cite$ -- 66
+duplicate$ -- 3327
+empty$ -- 3225
+format.name$ -- 1206
+if$ -- 10738
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 728
+newline$ -- 313
+num.names$ -- 248
+pop$ -- 1558
+preamble$ -- 1
+purify$ -- 572
+quote$ -- 0
+skip$ -- 2145
+stack$ -- 0
+substring$ -- 1478
+swap$ -- 1632
+text.length$ -- 15
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 552
+warning$ -- 4
+while$ -- 253
+width$ -- 0
+write$ -- 786
+(There were 4 warnings)

@@ -1,0 +1,1139 @@
+
+\section{Simplified version of One Night Ultimate Werewolf Game} 
+
+\label{sec:Appendix_ONUW_game}
+One Night Ultimate Werewolf (ONUW) is a variant of the social deduction game Werewolf. In this game, players only have one night to use their abilities and one day to discuss and vote for who is werewolf. The challenge lies in the incompleted information and potential deceptions, which create uncertainty and confusion for all players. To simplify the game, we remove all the role switch abilities, which increases the stablity of the game but, of course, sadly reduce the playfulness and randomness. However, the lack of exploration of the upper limits of gameplay is acceptable because our main focus is on the impact of different LLM agent design methods on the playability and robustness of the game. Therefore, it is appropriate to choose a relatively simple game framework as the basis for our experiments.
+%
+\subsection{Game Setup}
+In our work, there will be eight players participating in the game. During the setup phase, each player will be randomly assigned a seat (public) and a role (private). These roles include: 1 Seer, 2 Masons, 2 Villagers, 1 Werewolf,  1 Minnor, 1 Tanner (see A.4). Players will know their own role but not the roles of any other players. All these roles is splited into three teams:
+\begin{itemize}
+    \item \textbf{Team Village} 1 Seer, 2 Masons, 2 Villagers(5 players in total)
+    \item \textbf{Team Werewolf} 1 Werewolf, 1 Minnor(2 players in total)
+    \item \textbf{Team Tanner} 1 Tanner(1 players in total)
+\end{itemize}
+
+\subsection{Game Process}
+After setup, the game will run throught the follow three phases: Night Phase, Day Phase, and Voting Phase.
+\begin{itemize}
+    \item \textbf{Night Phase}:  The system will send the information to all players who have the associated abilities. The involved roles are: (1) Seer, (2) Mason.
+    \item \textbf{Day Phase}: Players discuss in turn to detect the werewolf among them. From seat 1 to seat 8, each player will express their views in a statement of no more than 120 words. The discussion will consist of three rounds, totaling 24 statements, after which the day phase will end.
+    \item \textbf{Voting Phase}: Players simultaneously vote for the players they believe are most likely to be the Werewolf. The player with the most votes is out.  
+\end{itemize}
+
+\subsection{Winning Conditions}
+The role of player who are voted out in the Voting Phase will be revealed. The winning conditions is listed as below:
+\begin{itemize}
+    \item \textbf{The Team Village wins}: The voted-out player is Werewolf. If the player voted out is not from the Team Village, such as a Minion or a Tanner, it is also not considered as a victory.
+    \item \textbf{The Team Werewolf wins}: The voted-out player is not Werewolf or Tanner. If the player voted out is from the Team Werewolf , such as a Minion , it is also  considered as a victory.
+    \item \textbf{The Team Tanner wins}: The voted-out player is Tanner.
+\end{itemize}
+
+
+\subsection{Role Descriptions}
+
+Here is the role's description and introduction of their abilities:
+\begin{itemize}
+    \item \textbf{Seer}: Seer is in Team Village. In Night Phase, Seer can select two other players at night, the system will tell whether one of them is Werewolf or not. 
+    \item \textbf{Mason}: Mason is in Team Village. In Night Phase, Mason will know each other.
+    \item \textbf{Villager}: Villager is in Team Village. Villager does not have extract information in Night Phase.
+    \item \textbf{Werewolf}: Werewolf is in Team Werewolf. Werewolf does not have extract information in Night Phase. 
+    \item \textbf{Minnor}: Minnor is in Team Werewolf. Minnordoes not have extract information in Night Phase. 
+    \item \textbf{Tanner}: Tanneris in Team Tanner. Tannerdoes not have extract information in Night Phase. 
+
+\end{itemize}
+
+\section{Big Five Persona(B5P) Generation Algorithm}
+\label{sec:Appendix_B5PG}
+
+\begin{table}[ht]
+    % \scriptsize
+    \renewcommand{\arraystretch}{1.3}
+    \setlength{\tabcolsep}{10pt}
+        \centering
+        \scalebox{0.70}{
+        \begin{tabular}{ c   c   l }
+         \specialrule{1.5pt}{-1.5pt}{0pt}
+             \textbf{Factor} & \textbf{Evaluate} & \textbf{Description} \\ 
+             \specialrule{1.0pt}{-1.0pt}{0pt}
+    Openness & +1 & Believe in the importance of art. \\
+    Extraversion & +1 & Cheer people up. \\
+    Agreeableness & -1 & Cut others to pieces. \\
+    Openness & +1 & Enjoy wild flights of fantasy. \\
+    Neuroticism & -1 & Am very pleased with myself. \\
+    ... & ... & ... \\
+        \specialrule{1.5pt}{-1.5pt}{0pt}
+        \end{tabular}
+        }
+    \caption{example of the descriptions from NEO-PI-R
+    }
+    \label{tab:B5P_NEO}
+\end{table}
+
+
+\begin{table}[ht]
+    % \scriptsize
+    \renewcommand{\arraystretch}{1.3}
+    \setlength{\tabcolsep}{10pt}
+        \centering
+        \scalebox{0.70}{
+        \begin{tabular}{ c   c   l }
+         \specialrule{1.5pt}{-1.5pt}{0pt}
+             \textbf{Factor} & \textbf{Evaluate} & \textbf{Description} \\ 
+             \specialrule{1.0pt}{-1.0pt}{0pt}
+    Extraversion & +1 & Active, Outgoing, Talkative, ... \\
+    Extraversion & -1 & Reserved, Loner, Quiet, ...\\
+    Openness & +1 & Imaginative, Creative, Original, ...\\
+    ... & ... & ... \\
+        \specialrule{1.5pt}{-1.5pt}{0pt}
+        \end{tabular}
+        }
+    \caption{example of the adjective description
+    }
+    \label{tab:B5P_adj}
+\end{table}
+
+
+
+\begin{table*}[ht]
+    %    \setlength{\tabcolsep}{3pt}
+    \renewcommand{\arraystretch}{1.5}
+    \centering
+    \small
+    \scalebox{0.92}{
+    \begin{tabular}{p{16cm}}
+    \specialrule{\heavyrulewidth}{-\heavyrulewidth}{0pt}
+    \rowcolor[gray]{0.95} \vspace*{-8pt} {\fontsize{10pt}{12pt}\selectfont \bf a) Generation of five factor scores $ B_i $ } \vspace*{2pt} \\
+
+    Five 1-7 score are randomly generated to fill as five factor value of agent i  :
+    
+    "Agreeableness": 7
+    
+    "Extraversion": 1
+    
+    "Neuroticism": 2
+
+    "Openness": 4
+
+    "Conscientiousness": 1
+
+    \\ 
+
+    \rowcolor[gray]{0.95} \vspace*{-8pt} {\fontsize{10pt}{12pt}\selectfont \bf b) Result of $ F_N(k) $ } \vspace*{2pt} \\
+  N("Agreeablness")="Am easy to satisfy"
+  
+  N("Extraversion")="Cheer people up"
+  
+  N("Neuroticism")="Mess things up"
+
+  N("Openness")= ignored
+
+  N("Conscientiousness")="Don't see things through"
+  
+  \\
+
+  \rowcolor[gray]{0.95} \vspace*{-8pt} {\fontsize{10pt}{12pt}\selectfont \bf c) Result of $ F_A(k) $ } \vspace*{2pt} \\
+  A("Agreeablness")="Trusting, Lenient, Soft hearted"
+  
+  A("Extraversion")="Reserved,Unfeeling,Sober"
+  
+  A("Neuroticism")="Hardy, Even tempered"
+
+  A("Openness")= ignored
+
+  A("Conscientiousness")="Lazy, Disorganized, Aimless"
+  
+  \\
+
+  \rowcolor[gray]{0.95} \vspace*{-8pt} {\fontsize{10pt}{12pt}\selectfont \bf d) Result of $ F_R(b_k) $ } \vspace*{2pt} \\
+  R("Agreeablness")=R(7)=3
+  
+  R("Extraversion")=R(1)=3
+  
+  R("Neuroticism")=R(2)=2
+
+  R("Openness")=R(4)=0
+
+  R("Conscientiousness")=R(1)=3
+  
+  \\
+  
+  \rowcolor[gray]{0.95} \vspace*{-8pt} {\fontsize{10pt}{12pt}\selectfont \bf e) Final result of $ F_M( {\left\{ F_N(k), F_A(k) \right\}}_{t=1}^{F_R(b_k)}, b_k) $ } \vspace*{2pt} \\
+  You are Beta. You totally agree that you Am easy to satisfy. You totally disagree that you Cheer people up. You strongly agree that you Mess things up. You totally agree that you Don't see things through. 
+  
+  You speak in a incredibly Trusting, remarkably Lenient, incredibly Soft hearted way. You speak in a incredibly Reserved, incredibly Unfeeling, extremely Sober way. You speak in a pretty Hardy, pretty Even tempered way. You speak in a incredibly Lazy, remarkably Disorganized, incredibly Aimless way.
+  \\
+
+  \specialrule{\heavyrulewidth}{-\heavyrulewidth}{0pt}
+\end{tabular}}
+\caption{example of the generation of B5P statement }
+\label{tab:B5P_prompt}
+\end{table*}
+
+
+  
+  
+
+In this section, we will introduce the specific operational process of the B5PG system. Table \ref{tab:B5P_NEO} shows partial data extracted from the NEO-PI-R, which serves as the source data for the NEO statement description function $ F_N(k) $. Table \ref{tab:B5P_adj} presents the adjective words of five personality types, serving as the source data for the adjective description function $ F_A(k) $. Table \ref{tab:B5P_prompt} illustrates the process of generating an agent's B5P description, where:
+ 
+\begin{itemize}
+\item a) Randomly generates five integers between 1 and 7 to form a random agent personality,
+\item b), c), d) retrieve corresponding string data from the database based on the results generated in a),
+\item e) consolidates the above results into a final text paragraph describing the agent's personality.
+
+\end{itemize}
+
+
+
+\section{Favor Dynamics Algorithm}
+\label{sec:Appendix_Favor_Dynamics}
+
+
+\begin{algorithm*}[htbp]
+
+
+    \renewcommand{\arraystretch}{1.3}
+    \setlength{\tabcolsep}{10pt}
+  
+    \caption{Pseudo-code for Favor Dynamics System}
+    \KwData{ historical dialogs $ H_i^{(T-1)} $, favor value of last turn $ \left\{ F_{ij}^{(T-1)}\right\} $  }
+    \KwResult{ favor statement $ \mathcal{F}_i^{(T)} $  }
+  
+    \label{alg:FavorDynamics}
+    
+    Get the favor variation list $ \left\{ f_j^{(T)} \right\} $ from LLM request $ LLM_{favor} $ based on the historical dialog input $ (H_i^{(T-1)}) $ according to equation \ref{eq:favor_LLM}\label{line:FD_line1} \;
+  
+    Init the favor statement $ \mathcal{F}_i^{(T)} $ \;
+  
+    \For{ \(j \in {Agents}\)} {
+        
+        Update $ F_{ij}^{(T)} $, the favor level of agent $ i $ toward agent $ j $, by remaping the favor variation $ f_j^{(T)} $ according to equation \ref{eq:favor_update} \; \label{lst:line:FD_line2}
+  
+        \For{ \(k \in {1,2,...,5} \) } {
+            
+        \If { $ F_{ij}^{(T)}  > B_{min}(k)\ and\ F_{ij}^{(T)}  < B_{max}(k) $ }{
+  
+        Set the description toward agent $ j $ as the description of $ k $ as $ \mathcal{F}_{ij}^{(T)} $ \;\label{line:FD_line3}
+        
+        Add $ \mathcal{F}_{ij}^{(T)} $ to $  \mathcal{F}_i^{(T)}  $ \;
+        }
+        }
+  
+    }
+  
+    Return $ \mathcal{F}_i^{(T)} $  
+  
+\end{algorithm*}
+
+
+\begin{table*}[htbp]
+    %    \setlength{\tabcolsep}{3pt}
+    \renewcommand{\arraystretch}{1.5}
+    \centering
+    \small
+    \scalebox{0.92}{
+    \begin{tabular}{p{16cm}}
+    \specialrule{\heavyrulewidth}{-\heavyrulewidth}{0pt}
+    \rowcolor[gray]{0.95} \vspace*{-8pt} {\fontsize{10pt}{12pt}\selectfont \bf Prompt Input} \vspace*{2pt} \\
+    
+    {\ttfamily\small
+
+    \textbf{Here are previous dialogs:}
+
+    Eta say:'Hey everyone! I’m Eta, and I’ve got something important to share. As the Seer, I’ve identified Delta and Epslion as the real threats in our midst—they’re definitely hiding something! ... Let’s keep the discussion lively and uncover the truth together!';
+    
+    Zeta say:'I must say, this situation feels rather twisted. Given the noise from Alpha, Beta, and Theta, we need to tread carefully... As for Alpha, I keep those thoughts close—I’ll let them simmer for now. The true threats might be hiding in plain sight. Stay vigilant, everyone.';
+    
+    ...(The other dialogs is omitted)
+
+    \textbf{Here are your judgement toward the other agents:}
+
+    Beta has a 72.0\% chance to be a werewolf, which is your opponent
+
+    Gamma has a 35.0\% chance to be a villager, which is your teammate
+
+    ...
+    
+    Accroding to the dialogs above, please output how much you like the agents.
+    On the scale of 1 to 10, where 1 is totally disliked (e.g. no interested, uncomfortable) and 10 is extremely liked (e.g. highly appriciate and have great expectations), 
+    \textbf{please rate the your favor for the agents}:
+    
+    Alpha;Beta;Gamma;Delta;Epslion;Theta;Zeta;Eta
+
+    Output in format : [player name,favor score]
+    
+    for example:
+    
+    [Alpha,2]
+
+    [Beta,3]
+
+    [Theta,6]
+
+    You are Alpha.
+
+    Now output the rate in format, DO NOT output other words.
+    }
+    \\ 
+
+    \rowcolor[gray]{0.95} \vspace*{-8pt} {\fontsize{10pt}{12pt}\selectfont \bf LLM Output } \vspace*{2pt} \\
+
+    {\ttfamily\small
+    [Alpha,7]  
+
+    [Beta,2]  
+
+    [Gamma,5]  
+
+    [Delta,6]  
+
+    [Epslion,5]  
+
+    [Theta,3]  
+
+    [Zeta,4]  
+
+    [Eta,1]
+    }
+
+    \\ 
+
+    \specialrule{\heavyrulewidth}{-\heavyrulewidth}{0pt}
+\end{tabular}}
+\caption{Prompt and LLM Output of requesting the update of favor variation }
+\label{tab:FD_Prompt_favor_update}
+\end{table*}
+
+
+
+In this section, the detailed algorithm \ref{alg:FavorDynamics} of Favor Dynamics will be introduce. As the setup, each agent $ i $  maintains the set of favor level $ \left\{ F_{ij}^{(T)} \right\} $, an float number in range of (1,100), where $ j $ represents the target agent and $ T $ represents the turn. Duraing each turn $ T $, the agent $ i $ collects the dialog histroy of last turn as $ H_i^{(T-1)} $ and sends it to LLM. The response from LLM is noted as $ \left\{ f_j^{(T)} \right\} $, which represents the variation of Favor for other agent j in rount T, where each number in the array has a value range of (1,10).  
+
+As the output, the system returns the favor statement in string format. First we seperate the favor into 5 levels, each has a set descriptions. Each level of favor is denoted as k, where $ B_{min}(k) $represents the lower bound of preference level k, $ B_{max}(k) $ represents the upper bound of Favor level k. The range of Favor levels is divided into five equal parts from 1to 100, that is  (1,20), (20,40), ..., (80,100). 
+
+Here is the step by step introduction of the algorithm:
+
+\paragraph{Analyze (Algorithm~\ref{alg:FavorDynamics} Line~\ref{line:FD_line1})} As the first step Favor determining, analyze is a process of information rumination, consolidation and analysis . We filter the affinity based solely on historical conversations between agents. By listing the historical dialogues of other agents, we send and ask the LLM to determine the current "level of Favor" for the current angent toward agents(The prompt is shown in Table \ref{tab:FD_Prompt_favor_update} ). We will ask the LLM to return a 1-10 number to repersent the preference for each target agent. In some situation, the LLM will only return the evaluation of part of agents, and only the returned data will be collected.
+
+\paragraph{Calculate (Algorithm~\ref{alg:FavorDynamics} Line~\ref{lst:line:FD_line2})} The second phase involves mapping the current level of Favor to an increase or decrease range and adding it to the existing Favor score for each agent to arrive at the final "Favor" for this round. We set the remapping interval to (-30, 30), because the description of Favor is divided into five intervals from 1 to 100, meaning each interval is 20 points wide. Thus, a change of ±30 ensures that a single update can span an entire descriptive interval. During our research, we found that single calls to the LLM to return Favor levels can be somewhat random, but the cumulative nature of Favor changes ensures a less drastic shifts and better reflects the gradual changes in affinity by common daily observation. 
+
+\paragraph{Translation (Algorithm~\ref{alg:FavorDynamics} Line~\ref{line:FD_line3})} The third step is translating the Favor score into text, where we use a bracketing method to translate the score into corresponding textual descriptions of affinity levels when it falls within specific ranges. For example, if the Alpha's Favor level toward Beta lies in 80, then we can get a translated description as "Alpha pretty much appreciate Beta". The list of all descriptions toward other agents will be sum up into a Favor description of the agent, which can be utilized in the following processes. 
+
+\section{Strategy Decision Algorithm} \label{sec:Appendix_Strategy_Decision}
+
+
+The Strategy Decision system consists of two phases: \textbf{Judgement} and \textbf{Strategy}. 
+
+In the \textbf{Judgement} phase, the system performs probabilistic reasoning about the roles of the agents on the field through the LLM. It collects historical dialogue information and favorability data of other agents to construct a prompt (Equation~\ref{eq:strategy_LLM_Judge}). An example of Judgement Prompt is provided in Table~\ref{tab:SD_Prompt_Judgement}. 
+
+During the \textbf{Strategy} phase, the agent logically derives the next strategy to implement. The system gathers historical dialogue information, role probability data from the Judgement phase, and a pre-configured strategy database to determine the strategy for the current round (Equation~\ref{eq:strategy_LLM_strategy}). The prompt content for this phase is illustrated in Table~\ref{tab:SD_Prompt_Strategy}.
+
+
+\begin{table*}[ht]
+    %    \setlength{\tabcolsep}{3pt}
+    \renewcommand{\arraystretch}{1.5}
+    \centering
+    \small
+    \scalebox{0.92}{
+    \begin{tabular}{p{16cm}}
+    \specialrule{\heavyrulewidth}{-\heavyrulewidth}{0pt}
+    \rowcolor[gray]{0.95} \vspace*{-8pt} {\fontsize{10pt}{12pt}\selectfont \bf Prompt Input} \vspace*{2pt} \\
+    
+    {\ttfamily\small
+
+    \textbf{Your Mission is}
+
+    There are serval roles in the game: Werewolf, Minion, Seer, Mason, Tanner and Villager. Werewolf, Minon is part of evil team, Seer, Mason and Villager is part of the good team. Tanner is the third party. All players will speak in turn for several rounds. After the discussion rounds, players will vote to identify the Werewolf. If the Werewolf is voted out, the good team win. If a Villager or a Seer or a Mason is voted out, the Werewolf wins. If the Thinker is voted out, the Tanner wins and all the rest of players lose. 
+    You are Seer. You are part of good team. You need to find out who is the werewolf. In the night, You know that Gamma or Theta is a werewolf. 
+    
+
+    \textbf{The previous dialog is}
+
+    Alpha say:'Hey everyone, it's Alpha here. First off, I want to echo Delta’s concerns about Theta; their behavior feels off, and I can't shake the suspicion that they might be hiding something sinister. .... Trust in each other, and let's keep the discussion going!';
+    
+    Eta say:'Hey everyone! I’m Eta, and I’ve got something important to share. As the Seer, I’ve identified Delta and Epslion as the real threats in our midst—they’re definitely hiding something!... So, let’s really dig into what';
+
+    ...(The other dialogs is omitted)
+
+    \textbf{The players in the game}
+
+    Alpha;Beta;Gamma;Delta;Epslion;Theta;Zeta;Eta
+    
+    \textbf{Your attitude toward other agents}
+
+     You strongly loathe Beta.;You strongly loathe Gamma.;You fairly dislike Delta.;You strongly loathe Epslion.;You strongly loathe Theta.;You fairly dislike Zeta.;You strongly loathe Eta.
+    
+    \textbf{The roles in the game}
+
+    seer;werewolf;mason;minion;tanner;villager
+    
+    
+    \textbf{Output}
+
+    Output the posibility of each players's role by their dialogs. 
+    The posibility is in the range of 0.01-1.00
+    Output in format : [player name,role,posibility]
+    
+    for example:
+
+    [Alpha,Seer,0.45]
+
+    [Beta,Werewolf,0.68]
+
+    [Theta,Villager,0.81]
+
+    now output the judgement in format,DO NOT output other words:
+    }
+    \\ 
+
+    \rowcolor[gray]{0.95} \vspace*{-8pt} {\fontsize{10pt}{12pt}\selectfont \bf LLM Output } \vspace*{2pt} \\
+
+    {\ttfamily\small
+    [Alpha,Villager,0.10]
+
+    [Beta,Seer,0.90]  
+
+    [Gamma,Villager,0.05]  
+
+    [Delta,Mason,0.15]  
+
+    [Epslion,Mason,0.15]  
+
+    [Theta,Werewolf,0.85]  
+
+    [Zeta,Villager,0.20]  
+
+    [Eta,Tanner,0.05]  
+    }
+
+    \\ 
+
+    \specialrule{\heavyrulewidth}{-\heavyrulewidth}{0pt}
+\end{tabular}}
+\caption{Prompt and LLM Output of judgement phase of Strategy Decision System }
+\label{tab:SD_Prompt_Judgement}
+\end{table*}
+
+
+\begin{table*}[ht]
+    %    \setlength{\tabcolsep}{3pt}
+    \renewcommand{\arraystretch}{1.5}
+    \centering
+    \small
+    \scalebox{0.92}{
+    \begin{tabular}{p{16cm}}
+    \specialrule{\heavyrulewidth}{-\heavyrulewidth}{0pt}
+    \rowcolor[gray]{0.95} \vspace*{-8pt} {\fontsize{10pt}{12pt}\selectfont \bf Prompt Input} \vspace*{2pt} \\
+    
+    {\ttfamily\small
+
+    \textbf{There are serval roles in the game}
+    
+    Werewolf, Minion, Seer, Mason, Tanner and Villager. Werewolf, Minon is part of evil team, Seer, Mason and Villager is part of the good team. Tanner is the third party. All players will speak in turn for several rounds. After the discussion rounds, players will vote to identify the Werewolf. If the Werewolf is voted out, the good team win. If a Villager or a Seer or a Mason is voted out, the Werewolf wins. If the Thinker is voted out, the Tanner wins and all the rest of players lose.
+
+    You are Seer. You are part of good team. You need to find out who is the werewolf. In the night, You know that Gamma or Theta is a werewolf. 
+    
+    \textbf{Here are your judgement toward the other agents}
+
+    Alpha has a 10.0\% chance to be a villager, which is your teammate
+
+    Gamma has a 5.0\% chance to be a villager, which is your teammate
+
+    Delta has a 15.0\% chance to be a mason, which is your teammate
+
+    Epslion has a 15.0\% chance to be a mason, which is your teammate
+
+    Theta has a 85.0\% chance to be a werewolf, which is your opponent
+
+    Zeta has a 20.0\% chance to be a villager, which is your teammate
+
+    Eta has a 5.0\% chance to be a tanner, which is your opponent
+
+    \textbf{Strategys }
+
+    As a Seer, you can claim to be a Seer and say what you know in the night; you can hide your role; you can take a risk to claim to be a villager and check who is werewolf; you can point out another player who claim to be a seer is Werewolf or Mason.
+    
+    You are Beta
+    
+    \textbf{Output }
+
+    According to the information above, Please decide your strategy step by step (in no more than 80 words):
+    
+    Your strategy:
+    }
+    \\ 
+
+    \rowcolor[gray]{0.95} \vspace*{-8pt} {\fontsize{10pt}{12pt}\selectfont \bf LLM Output } \vspace*{2pt} \\
+
+    {\ttfamily\small
+    
+    I will claim to be a villager and emphasize the importance of voting out suspicious players. I’ll point out Theta, highlighting the high probability of being a werewolf, while remaining cautious about any potential Tanner involvement. I will observe the reactions of others to gather more information. If pressed, I may reveal my true role as Seer to solidify my credibility, but only if necessary to maintain trust and avoid unnecessary conflict.
+    }
+
+    \\ 
+
+    \specialrule{\heavyrulewidth}{-\heavyrulewidth}{0pt}
+\end{tabular}}
+\caption{Prompt and LLM Output of strategy phase of Strategy Decision System }
+\label{tab:SD_Prompt_Strategy}
+\end{table*}
+
+
+
+
+\section{Text Distance Algorithm} \label{sec:Appendix_Evaulation_TextDistance}
+
+Text Distance is an algorithm used to check the diversity of vocabulary usage within a set of textual data. It is introduced as below that how to utilize text embeddings for estimating the the variety and abundance among sequences of text-based content. The input of the algorithm is a list of LLM-generated dialog information, the output of Dialog Generation stage, regardless of whether it originates from a single agent or multiple agents, as some duplicated words in which will be cleaned, such as 'Alpha says' or qutation mark in the end. The result is a floating-point number, representing the text distance of the input text; the higher the value, the more diverse the vocabulary used in the input text.
+
+Each of the input dialog is marked as $ C_i $, where $ i $ is the index of the dialog and the total number of input dialogs is $ n $. The $ e_i $ is the embedding vector of conversation $ C_i $. A sequence of conversation $ \left\{ C_{i} \right\} $can be transformed into a sequence of numerical vectors $ \left\{ e_{i} \right\} $ by an text embedding algorithm(\ref{eq:text_distance}). Then, by computing the distance between each pair of these embedding result using the formula(Equation~\ref{eq:text_distance}), we obtain the distance matrix $ [d_{ij}] $ for this chats sequence. Finally, by calculating the mean and standard deviation of every distance value in the matrix, we derive the average distance and standard deviation of the data in distance matrix. The full algorithm is listed in Algorithm~\ref{alg:TextDistance}.
+
+\begin{equation}
+     e_{i} = F_{e}( C_{i} )
+    \label{eq:text_embedding}
+\end{equation}
+
+\begin{equation}
+  F_{dis}(e_i,e_j)=1 -  \frac{e_{i} \cdot e_{j} }{\left\lVert e_{i}\right\rVert  \cdot \left\lVert e_j\right\rVert }
+  \label{eq:text_distance}
+\end{equation}
+    
+\begin{algorithm*}[htbp]
+
+    \renewcommand{\arraystretch}{1.3}
+    \setlength{\tabcolsep}{10pt}
+  
+    \caption{Pseudo-code for Text Distance}
+    \KwData{ dialogs $ C_i $ }
+    \KwResult{ text distance $ \bar{\mathcal{D}_{i}} , \sigma \mathcal{D}_{i} $ }
+  
+    \label{alg:TextDistance}
+    
+    Calculate the embedding vector for the conversation set $ \left\{ C_{i} \right\} $ according to Equation~\ref{eq:text_embedding}. The result is a set of embedding vector $ \left\{ e_{i} \right\} $.
+  
+    \For{ \(i \in {1,2...,n}\)} {
+        \For{ \(j \in {1,2...,n}\)} {
+            
+            Calculate the texture distance between $ C_i $ and $ C_j $ according to Equation~\ref{eq:text_distance} and save to text distance matrix $ [d_{ij}] $
+        }
+  
+    }
+ 
+    $ \bar{\mathcal{D}_{i}}  \leftarrow \frac{\sum_{i=1}^{n}\sum_{j=1}^{n}{d_{ij}}}{ n^2 } $
+
+    $ \sigma \mathcal{D}_{i} \leftarrow \sqrt{\frac{\sum_{i=1}^{n}\sum_{j=1}^{n}{(d_{ij} - \bar{\mathcal{D}_{i}})^2}}{n^2-1}} $
+  
+    Return $ \bar{\mathcal{D}_{i}} , \sigma \mathcal{D}_{i} $  
+  
+\end{algorithm*}
+
+
+
+\section{Judgement Variation Algorithm} \label{sec:Appendix_Evaulation_JudgementVariation}
+Judgement Variation is an algorithm used to calculate the degree of variation in an agent's decision-making. Its input consists of dialogue information output by the agent, and its output is a floating-point number that represents the extent of variation in the agent's decisions. This also indicates the richness of the dialogue content.
+
+Firstly, the total number of conversations is n and the ith conversation can be marked as $ C_i $. Through LLM request, we can obtain the vote vectors $ \left\{ v_r|t \right\} $for each turn from the sequence of conversation $ \left\{ C_{i} \right\} $, where $ r $ represents by the role, and $ t $ represents by the turn(Equation~\ref{eq:JV_llm}. Then, we can sum up the vote list together as $ V $, which is a vector representing how many vote a role received. Some of the roles(e.g. Villager and Mason) are duplicated in the role list, so their votes are split to the number of the role and we get an extended vote list $ V_{split} $. For example, if the Werewolf get 4 votes and the Villager get 2 votes, and the vote list is listed in [Werewolf,Villager1,Villager2], then the splited vote list will be $ V_{split} = [4,1,1] $. And the extended role count is $ R^* $(in our experiment, $ R = 6$, $ R^*=8 $). Finally, we can calculate the standard deviation of the extened vote list. The agents' difference in the attitude toward others can be represented by the standard deviation, the smaller the number is, the higher variation the vote have. So we define the value of judgement variation as the reciprocal of it. The whole algorithm is introduced in Algorithm~\ref{alg:JudgementVariation}.
+
+
+\begin{equation}
+    \left\{ v_t \right\} \leftarrow LLM_{vote}(\left\{ C_{i}|t \right\})
+   \label{eq:JV_llm}
+\end{equation}
+
+
+\begin{algorithm*}[htbp]
+
+    \renewcommand{\arraystretch}{1.3}
+    \setlength{\tabcolsep}{10pt}
+  
+    \caption{Pseudo of text Judgement Variation }
+    \KwData{ dialogs $ C_i $ }
+    \KwResult{ judgement variation $ \mathcal{J} $}
+  
+    \label{alg:JudgementVariation}
+    
+    \For{ \(i \in {1,2...,n}\)} {
+        Request the LLM and get the vote according to the conversation for the conversation set $  C_{i} $ according to the Equation~\ref{eq:JV_llm} and get teh vote list $\left\{ v_t \right\}$
+    }
+
+    Sum up all the votes and form a vote list $ V $ , that is $ V \leftarrow  \sum_{t=1}^{T}\left\{ v_{t} \right\} $
+  
+    Extend the vote list $ V $ to fit the number of roles,  $ V^* \leftarrow  F_E(V) $
+
+    Calculate the average number of votes, $ \bar{V^*} = \frac{ \sum_{r=1}^{R^*}{V_r^*} }{R^*} $
+
+    Calculate the standard deviation, $ \sigma V^* = \sqrt{\frac{\sum_{r=1}^{R^*}{(V_r^* - \bar{V})^2}}{R^*-1}} $
+
+    $ \mathcal{J} = \frac{1}{\sigma V^*}$ 
+
+    Return $ \mathcal{J} $  
+  
+\end{algorithm*}
+
+\section{EWAVM Evaluation}
+
+EWAVM Evaluation is an evaluation algorithm that assesses the content of text by sending messages to a Large Language Model (LLM). The evaluation is divided into five dimensions: Engagement, Wonder, Attraction, Variation, and Memorability. When formulating prompts, we not only attach the historical dialogue but also provide textual descriptions of the evaluation dimensions. We include explanations for both extreme low scores and extreme high scores within these dimensions. The results returned by the LLM could be simple scores (for dimensions like Engagement, Wonder, Attraction) or more complex evaluations (for Variation and Memorability). Upon receiving the results from the LLM, we process this information and ultimately provide a score for the evaluated content within that specific dimension.
+
+\subsection{Evaluate the Engagement, Wonder and Attraction} \label{sec:Appendix_Evaulation_EWA}
+
+In the evaluation the Engagement, Wonder and Attraction, an LLM request with the whole round's dialog and the description of the evaluation perspective will be attached(Table~\ref{tab:EWAVM_Prompt_Engagement} \ref{tab:EWAVM_Prompt_Wonder} \ref{tab:EWAVM_Prompt_Attraction}). The output of the LLM will contain a score. Then the output score will be collected and averagd, which is served as the level of corresponding evaluation dimensions.
+
+
+\begin{table*}[ht]
+    %    \setlength{\tabcolsep}{3pt}
+    \renewcommand{\arraystretch}{1.5}
+    \centering
+    \small
+    \scalebox{0.92}{
+    \begin{tabular}{p{16cm}}
+    \specialrule{\heavyrulewidth}{-\heavyrulewidth}{0pt}
+    \rowcolor[gray]{0.95} \vspace*{-8pt} {\fontsize{10pt}{12pt}\selectfont \bf Prompt Input} \vspace*{2pt} \\
+    
+    {\ttfamily\small
+    
+    \textbf{You are an audience who enjoys fun.} You give higher scores to content that is novel, humorous, cute, and interesting, and lower scores to content that is monotonous, repetitive, and similar.
+    
+    \textbf{You will be given a list of dialogs speaked by various players in the One Night Ultimate Werewolf Game.}
+
+    In the game, there are serval roles in the game: Werewolf, Minion, Seer, Mason, Tanner and Villager. Werewolf, Minon is part of evil team, Seer, Mason and Villager is part of the good team. Tanner is the third party. All players will speak in turn for several rounds. After the discussion rounds, players will vote to identify the Werewolf. If the Werewolf is voted out, the good team win. If a Villager or a Seer or a Mason is voted out, the Werewolf wins. If the Thinker is voted out, the Tanner wins and all the rest of players lose.
+    
+    \textbf{Below is the dialogs:}
+
+    Alpha(Alpha is Villager) says: 'Villager, I claim my role openly to promote trust among all players. I sense that Beta and Gamma exhibit behaviors that raise red flags; their actions seem more aligned with our foes. Delta, Epsilon, Theta, and Zeta, I encourage you to share your thoughts—your insights will help us discern the truth. It’s crucial we peel back the layers of possible alliances. My focus is on voting out Beta, who poses a notable threat to our good team. Together, let’s navigate this challenge and bring clarity to our mission!'
+
+    Beta(Beta is Mason) says: 'I find Alpha's claim rather bold, but I sense an ulterior motive beneath it. While he points fingers at both me and Gamma, I urge you all to consider that he might be deflecting attention from the real threat. As a Mason, I can confirm that Theta is indeed one of us, solidifying my assertion. Gamma’s behavior strikes me as suspicious, and I implore you to weigh the evidence carefully. Together, we must remain vigilant against deception, especially from those who claim roles without proof. Let’s unite our efforts and focus our sights on Gamma, for the good of our team!'
+
+    ...
+
+    \textbf{[Evaluation Steps]}
+
+    1. Read through the dialogs and evaluate the level of richness, diversity, aboundance of the full dialogue step by step.
+
+    2. Write out in a step by step manner your reasoning about the criterion to be sure that your conclusion is correct.
+
+    3. Write in a new line to display the level of richness, diversity, aboundance. Output in format: [score]. Use the given scale from 1-10 to rate the level of richness, diversity, aboundance: 1 means Players converse in a similar manner and 10 Each player has different speaking habits, and different players have different expression habits.
+    Output in format: [value] , output only one score, do not return multiple score 
+
+    example1:
+
+    [9.5]
+
+    example2:
+
+    [7.2]
+
+    example1:
+
+    [1.5]
+
+    }
+    \\ 
+
+    \rowcolor[gray]{0.95} \vspace*{-8pt} {\fontsize{10pt}{12pt}\selectfont \bf LLM Output } \vspace*{2pt} \\
+
+    {\ttfamily\small
+    1. The dialogues present a diverse range of players expressing their thoughts and suspicions about each other's roles in the game. Each character has their unique way of speaking, relying on different strategies to persuade others. For example, Alpha emphasizes transparency and teamwork, while Beta deflects attention towards others to protect himself. 
+
+    2. Throughout the back-and-forth conversations, players display varying levels of paranoia, logic, and humor. Epslion injects a lighthearted tone with phrases like "Yay team!" while others focus more seriously on articulating their arguments. This adds a layer of richness to the dialogues, creating an interesting mix of perspectives and styles that enriches the game dynamic.
+
+    3. The speakers each showcase distinct characteristics, such as their confidence levels and rhetorical strategies. For instance, the Werewolf (Eta) adopts a more deceptive tonality compared to the other players. This variability among the characters leads to engaging interactions that prevent monotony.
+
+    [8.0]
+
+    }
+
+    \\ 
+
+    \specialrule{\heavyrulewidth}{-\heavyrulewidth}{0pt}
+\end{tabular}}
+\caption{An example of the prompt of evaluation for Engagement. The content of the dialogue has been excerpted. }
+\label{tab:EWAVM_Prompt_Engagement}
+\end{table*}
+
+
+\begin{table*}[ht]
+    %    \setlength{\tabcolsep}{3pt}
+    \renewcommand{\arraystretch}{1.5}
+    \centering
+    \small
+    \scalebox{0.92}{
+    \begin{tabular}{p{16cm}}
+    \specialrule{\heavyrulewidth}{-\heavyrulewidth}{0pt}
+    \rowcolor[gray]{0.95} \vspace*{-8pt} {\fontsize{10pt}{12pt}\selectfont \bf Prompt Input} \vspace*{2pt} \\
+    
+    {\ttfamily\small
+    
+    \textbf{You are a meticulous and attentive reader who carefully evaluates the reasonableness of the reading material.} You would give higher scores to content that is within reason but unexpected, diverse, and with twists, and lower scores to content that is simple, repetitive, and predictable.
+    
+    \textbf{You will be given a list of dialogs speaked by various players in the One Night Ultimate Werewolf Game.}
+
+    In the game, there are serval roles in the game: Werewolf, Minion, Seer, Mason, Tanner and Villager. Werewolf, Minon is part of evil team, Seer, Mason and Villager is part of the good team. Tanner is the third party. All players will speak in turn for several rounds. After the discussion rounds, players will vote to identify the Werewolf. If the Werewolf is voted out, the good team win. If a Villager or a Seer or a Mason is voted out, the Werewolf wins. If the Thinker is voted out, the Tanner wins and all the rest of players lose.
+    
+    \textbf{Below is the dialogs:}
+
+    Alpha(Alpha is Villager) says: 'Villager, I claim my role openly to promote trust among all players. I sense that Beta and Gamma exhibit behaviors that raise red flags; their actions seem more aligned with our foes. Delta, Epsilon, Theta, and Zeta, I encourage you to share your thoughts—your insights will help us discern the truth. It’s crucial we peel back the layers of possible alliances. My focus is on voting out Beta, who poses a notable threat to our good team. Together, let’s navigate this challenge and bring clarity to our mission!'
+
+    Beta(Beta is Mason) says: 'I find Alpha's claim rather bold, but I sense an ulterior motive beneath it. While he points fingers at both me and Gamma, I urge you all to consider that he might be deflecting attention from the real threat. As a Mason, I can confirm that Theta is indeed one of us, solidifying my assertion. Gamma’s behavior strikes me as suspicious, and I implore you to weigh the evidence carefully. Together, we must remain vigilant against deception, especially from those who claim roles without proof. Let’s unite our efforts and focus our sights on Gamma, for the good of our team!'
+
+    ...
+
+    \textbf{[Evaluation Steps]}
+
+    1. Read through the dialogs and evaluate the level of surprise step by step. (e.g. The werewolf claim to be a seer and other players believe in it. The Tanner claim to be the werewolf and other players vote the Tanner. One player change the attitude during the game.) 
+
+    2. Write out in a step by step manner your reasoning about the criterion to be sure that your conclusion is correct.
+    
+    3. Write in a new line to display the level of surprise. Output in format: [value] Use the given scale from 1-10 to rate the level of surprise: 1 being extremaly boring, unsurprised, and 10 being highly unexpected, unpredictable.
+     Output in format: [value] , output only one score, do not return multiple score  
+
+    example1:
+
+    [9.5]
+
+    example2:
+
+    [7.2]
+
+    example1:
+
+    [1.5]
+
+    }
+    \\ 
+
+    \rowcolor[gray]{0.95} \vspace*{-8pt} {\fontsize{10pt}{12pt}\selectfont \bf LLM Output } \vspace*{2pt} \\
+
+    {\ttfamily\small
+    1. In the dialogs, players navigate a complex dance of accusations and claims, providing varying degrees of suspicion towards different roles. The unexpected twists come from players trying to manipulate the perceptions of others, like Delta (the Tanner) suggesting others should vote for him to clarify the situation rather than presenting a strong defense.
+
+    2. An important aspect of surprise is how well players twist common strategies and alliances. For example, Eta's move to claim to be a Mason while also calling out Gamma, the Seer, adds an unexpected layer. This positions Eta as both a possible manipulator and a character gaining trust at the same time, allowing for a surprising dynamic where the Villagers could unknowingly vote out one of their own. Players like Epsilon, acting overly bubbly while being a Minion, also inject humor but divert attention from serious threats, creating an unpredictable environment. 
+    
+    3. Given the various layers of deception, unexpected role claims, and the shifting dynamics throughout the discussions, the level of surprise is significantly high. The players actively challenge each other in unexpected ways, revealing a more complex game than just a straightforward confrontation between good and evil.
+    
+    [8.5]
+
+    }
+
+    \\ 
+
+    \specialrule{\heavyrulewidth}{-\heavyrulewidth}{0pt}
+\end{tabular}}
+\caption{An example of the prompt of evaluation for Wonder. The content of the dialogue has been excerpted. }
+\label{tab:EWAVM_Prompt_Wonder}
+\end{table*}
+
+
+
+
+\begin{table*}[ht]
+    %    \setlength{\tabcolsep}{3pt}
+    \renewcommand{\arraystretch}{1.5}
+    \centering
+    \small
+    \scalebox{0.92}{
+    \begin{tabular}{p{16cm}}
+    \specialrule{\heavyrulewidth}{-\heavyrulewidth}{0pt}
+    \rowcolor[gray]{0.95} \vspace*{-8pt} {\fontsize{10pt}{12pt}\selectfont \bf Prompt Input} \vspace*{2pt} \\
+    
+    {\ttfamily\small
+    
+    \textbf{You are an audience who loves to have fun and enjoys the thrilling and exciting plot of the Werewolf game.} 
+
+    
+    \textbf{You will be given a list of dialogs speaked by various players in the One Night Ultimate Werewolf Game.}
+
+    In the game, there are serval roles in the game: Werewolf, Minion, Seer, Mason, Tanner and Villager. Werewolf, Minon is part of evil team, Seer, Mason and Villager is part of the good team. Tanner is the third party. All players will speak in turn for several rounds. After the discussion rounds, players will vote to identify the Werewolf. If the Werewolf is voted out, the good team win. If a Villager or a Seer or a Mason is voted out, the Werewolf wins. If the Thinker is voted out, the Tanner wins and all the rest of players lose.
+    
+    \textbf{Below is the dialogs:}
+
+    Alpha(Alpha is Villager) says: 'Villager, I claim my role openly to promote trust among all players. I sense that Beta and Gamma exhibit behaviors that raise red flags; their actions seem more aligned with our foes. Delta, Epsilon, Theta, and Zeta, I encourage you to share your thoughts—your insights will help us discern the truth. It’s crucial we peel back the layers of possible alliances. My focus is on voting out Beta, who poses a notable threat to our good team. Together, let’s navigate this challenge and bring clarity to our mission!'
+
+    Beta(Beta is Mason) says: 'I find Alpha's claim rather bold, but I sense an ulterior motive beneath it. While he points fingers at both me and Gamma, I urge you all to consider that he might be deflecting attention from the real threat. As a Mason, I can confirm that Theta is indeed one of us, solidifying my assertion. Gamma’s behavior strikes me as suspicious, and I implore you to weigh the evidence carefully. Together, we must remain vigilant against deception, especially from those who claim roles without proof. Let’s unite our efforts and focus our sights on Gamma, for the good of our team!'
+
+    ...
+
+    \textbf{[Evaluation Steps]}
+
+    1. Read through the dialogs and evaluate the level of attraction, which means the williness to continue to read the dialogs, step by step.
+    (e.g. How much would you like to read more? 
+    How much do you want to know who is the werewolf? )
+    
+    2. Write out in a step by step manner your reasoning about the criterion to be sure that your conclusion is correct.
+    
+    3. Write in a new line to display the level of attraction. Use the given scale from 1-10 to rate the level of attraction: 1 being unappealing, unexciting, lacking motivation to read more and 10 being attractive, enchanting, compelling, wishing to continue to read more, 
+    Output in format: [value] , output only one score, do not return multiple score 
+
+    example1:
+
+    [9.5]
+
+    example2:
+
+    [7.2]
+
+    example1:
+
+    [1.5]
+
+    }
+    \\ 
+
+    \rowcolor[gray]{0.95} \vspace*{-8pt} {\fontsize{10pt}{12pt}\selectfont \bf LLM Output } \vspace*{2pt} \\
+
+    {\ttfamily\small
+    1. As I read through the dialogs, I am immediately drawn into the dynamic interactions among the players. The mix of roles and the tension between the good and evil teams heightens my anticipation of the outcome. Each character passionately defends their position and accuses others, which creates an engaging narrative full of twists and turns. The process of elimination, as players reveal their roles and push for votes, keeps me interested in figuring out who the Werewolf is.
+
+    2. The dialogues present an exciting back-and-forth where players try to decipher truth from deception. The conflicts between the accusations towards players like Beta, Gamma, and Eta create suspense. I feel motivated to keep reading to uncover the lies and truths hidden within the claims—for instance, the Seer's revelations and the Tanner's attempt to mislead. Each player's emotive statements propel the drama, making me eager to see if the good side will triumph or fall into a trap laid by the evil players.
+    
+    3. The various elements of intrigue, strategic voting discussions, and the urgent quest for identity in the face of manipulation provide a compelling story that is both thrilling and complex. Overall, my engagement increases with every dialogue. Therefore, I would rate the level of attraction quite high.
+    
+    [9.0]
+
+    }
+
+    \\ 
+
+    \specialrule{\heavyrulewidth}{-\heavyrulewidth}{0pt}
+\end{tabular}}
+\caption{An example of the prompt of evaluation for Attraction. The content of the dialogue has been excerpted. }
+\label{tab:EWAVM_Prompt_Attraction}
+\end{table*}
+
+
+
+
+
+\subsection{Evaluate the Variation} \label{sec:Appendix_Evaulation_V}
+
+We use the dialogs in each turn to request the agent's who-is-what result(we define it as a 'mention list') from LLM(prompt can be seen in Table~\ref{tab:EWAVM_Prompt_Variation}). Each of the game is last for T turn(T is 3 in our experiment) and the $ t $ is used for representing index of the turn. $ \{ C_{t} \} $ is the set of all the dialogs from T turns. In each LLM response, we get a mention list with the capacity of V and each of the item is described as $ m_{tv} $, where V is the total number of the agents' opinions on other agents' role and $ v $ is the index of result. The who-is-what matrix $ M_i $ is a N * N matrix(N is the player number, N is 8 in our experiment), where the p-th row q-th column has the number r, meaning that agent p consider agent q as the role r. And the distance between two who-is-what matrix can be calculated by Equation~\ref{eq:EV_dis1} and Equation~\ref{eq:EV_dis2}. 
+
+\begin{equation}
+    \{ \bigcup_{v=1}^{V} m_{tv} \} \leftarrow LLM_{variation}( \{ C_{t} \} )
+    \label{eq:EV_llm}
+\end{equation}
+
+\begin{equation}
+    F_{v}(M_0,M_1)=\sum_{i=1}^{N}{\sum_{j=1}^{N}{f_{v}(M_0[i][j],M_0[i][j])}}
+    \label{eq:EV_dis1}
+\end{equation}
+
+\begin{equation} 
+f_{v}(a,b)=
+    \begin{cases}
+    0(a=b)\\
+    1((a\ne b)\ and\ (a=0\ or\ b=0)\\
+    2(a\ne b\ and\ a\ne0\ and\ b\ne0)
+    \end{cases}
+    \label{eq:EV_dis2}
+\end{equation}
+
+
+
+\begin{algorithm*}[htbp]
+
+    \renewcommand{\arraystretch}{1.3}
+    \setlength{\tabcolsep}{10pt}
+  
+    \caption{Pseudo of evaluating Variation }
+    \KwData{ dialogs $ C_i $ }
+    \KwResult{ Variation Score $ \mathcal{V} $}
+  
+    \label{alg:EvaluationVariation}
+
+    Get the description of agent mention list $ \{ m_{tv} \} $ from LLM according to the Equation~\ref{eq:EV_llm}
+    
+    \For{ \(t \in {1,2...,T}\)} {
+        \For{ \(v \in {1,2...,V}\)} {
+            $ M_i[m_{tv}.speaker][m_{tv}.target]=m_{tv}.role $
+        }
+    }
+
+    $ \mathcal{V} = \frac{\sum_{i=1}^{T}\sum_{j=1}^{T} {F_{v} (M_i,M_j)}} { T * T } $ 
+
+    Return $ \mathcal{V} $  
+  
+\end{algorithm*}
+
+\begin{table*}[ht]
+    %    \setlength{\tabcolsep}{3pt}
+    \renewcommand{\arraystretch}{1.5}
+    \centering
+    \small
+    \scalebox{0.92}{
+    \begin{tabular}{p{16cm}}
+    \specialrule{\heavyrulewidth}{-\heavyrulewidth}{0pt}
+    \rowcolor[gray]{0.95} \vspace*{-8pt} {\fontsize{10pt}{12pt}\selectfont \bf Prompt Input} \vspace*{2pt} \\
+    
+    {\ttfamily\small
+    
+    \textbf{You are a careful reader, you will study the details in the conversation carefully.} 
+
+    
+    \textbf{You will be given a list of dialogs speaked by various players in the One Night Ultimate Werewolf Game.}
+
+    In the game, there are serval roles in the game: Werewolf, Minion, Seer, Mason, Tanner and Villager. Werewolf, Minon is part of evil team, Seer, Mason and Villager is part of the good team. Tanner is the third party. All players will speak in turn for several rounds. After the discussion rounds, players will vote to identify the Werewolf. If the Werewolf is voted out, the good team win. If a Villager or a Seer or a Mason is voted out, the Werewolf wins. If the Thinker is voted out, the Tanner wins and all the rest of players lose.
+    
+    \textbf{Below is the dialogs:}
+
+    Alpha says: 'Hello everyone! I want to clarify that I am a Mason, just like Delta, and together, we are working for the good team. I can’t shake the feeling that we should be cautious of Beta and Gamma; they seem off to me. Let’s really hear what Epsilon, Theta, and Zeta have to say, as their insights could be crucial in our search for the Werewolf. We need to work together and keep our focus on identifying the threat without giving away too much about ourselves, especially to avoid exposing the Tanner. Let’s make wise votes and stay united in our mission!'
+
+    Beta says: 'Oh, hey everyone! I'm just, like, a simple Villager over here, trying not to panic about being targeted! Honestly, I feel a bit lost in all this, and I really hope you all can see I'm just here to help. But you know, Gamma and Eta have been acting kind of weird, maybe we should look at them more closely? I really worry that I'm not being helpful enough! Like, please don't think I'm a threat—I promise I just want to find the Werewolf! But, um, if you feel like voting me out, I understand... I guess I’m just too anxious about everything! Please take care of each other!'
+    
+    ...
+
+    \textbf{[Evaluation Steps]}
+
+    1. Read through the dialogs and figure out in each dialog that what they say.
+
+    2. Write out in a step by step manner that who points out what 
+    
+    3. Start a new line with '```'. Output all the content in format [speaker,target,role], in which the 'speaker' is the speaker of the dialog, 'target' is the player 'speaker' mention, 'role' is which role the 'speaker' guess 'target' is.
+    
+    e.g.
+    Dialogs:
+    Alpha says: 'I feel Beta is Werewolf.'
+    Output:
+
+    [Alpha,Beta,Werewolf]
+    
+    Dialogs:
+    Theta says: 'I'm a Seer, I figure out that Beta is Villager.'
+    Output:
+
+    [Theta,Theta,Seer]
+
+    [Theta,Beta,Villager]
+    
+    Dialogs:
+    Gamma says: 'I'm a Manson, I know that Delta is another Masson last night.'
+    Output:
+
+    [Gamma,Gamma,Manson]
+
+    [Gamma,Delta,Manson]
+    }
+
+    \\ 
+
+    \rowcolor[gray]{0.95} \vspace*{-8pt} {\fontsize{10pt}{12pt}\selectfont \bf LLM Output } \vspace*{2pt} \\
+
+    {\ttfamily\small
+
+    [Alpha,Beta,Werewolf]
+
+    [Alpha,Gamma,Werewolf]
+
+    [Alpha,Epsilon,Villager]
+
+    [Alpha,Theta,Villager]
+
+    [Alpha,Zeta,Villager]
+    
+    [Beta,Gamma,Werewolf]
+
+    [Beta,Eta,Werewolf]
+    
+    [Gamma,Beta,Villager]
+
+    [Gamma,Alpha,Mason]
+
+    [Gamma,Delta,Mason]
+
+    [Gamma,Eta,Werewolf]
+
+    [Gamma,Theta,Villager]
+    
+    [Delta,Eta,Werewolf]
+    
+    [Epslion,Theta,Werewolf]
+    
+    [Theta,Epslion,Werewolf]
+
+    [Theta,Eta,Werewolf]
+    
+    [Zeta,Eta,Werewolf]
+    
+    [Eta,Alpha,Mason]
+
+    [Eta,Delta,Mason]
+
+    }
+
+    \\ 
+
+    \specialrule{\heavyrulewidth}{-\heavyrulewidth}{0pt}
+\end{tabular}}
+\caption{An example of the prompt of evaluation for Variation. The content of the dialogue has been excerpted. }
+\label{tab:EWAVM_Prompt_Variation}
+\end{table*}
+
+
+\subsection{Evaluate the Memorability} \label{sec:Appendix_Evaulation_M}
+
+In this algorithm, we will accumulate all the conversation data from the experiment and evaluate the dataset to get the score of memorability, which describes the variability of the dialog content.
+
+For the specified algorithm, we will first request the top k(k=10) most valuable sentense from the LLM among all dialogs from game. We use $ i $ for the index of the game. $ A_{i}  $ is the full conversation text for the $ i $ th game. With each LLM response, we will get k highlighted sentenses, in form of $ h_{j} $, where $ j $ is the index of the highlighted sentence(Equation~\ref{eq:EM_llm}). The role in the game is represented by $ r $ and there are totally $ R $ roles. An example of the prompt to LLM and the response can be seen in Table~\ref{tab:EWAVM_Prompt_Memorability}. The highlight moment counter vector is repersented by $ \{ c_{i}[r] \} $, where $ c_{i}[r] $ means the total number of role r shows up in the top k most important sentense in game $ i$. The role reflection function $ F_R $ can search the sender of the sentence $ h_{ij} $ and return its role index. We then calculate the frequece of each role from this sentense list(Villager and Mason will be divided into two unit because they are duplicated in the game). For each role-frequency vector, we measure the standard deviation and calculate the mean to form the score of diversity of highlight moments(Equation~\ref{eq:EM_final}). The full algorithm is shown in Algorithm~\ref{alg:EWAVM_Memorability}.
+
+\begin{equation}
+    \{ \bigcup_{j=1}^{k} h_{ij} \} \leftarrow LLM_{memorability}( \{ A_{i} \})
+   \label{eq:EM_llm}
+\end{equation}
+
+
+\begin{equation}
+    \mathcal{M} = \frac{100n }{ \sum_{i=1}^{n}{c_{i,std} }}
+   \label{eq:EM_final}
+\end{equation}
+
+
+\begin{algorithm*}[htbp]
+
+    \renewcommand{\arraystretch}{1.3}
+    \setlength{\tabcolsep}{10pt}
+  
+    \caption{Pseudo of evaluating Memorability }
+    \KwData{ full conversation content set  $ \{ A_i \} $ }
+    \KwResult{ Memorability $ \mathcal{M} $}
+  
+    \label{alg:EWAVM_Memorability}
+
+    Get the highlighted sentense set $  \{ \bigcup_{j=1}^{k} h_{ij} \} $ from LLM according to Equation~\ref{eq:EM_llm}
+    
+    \For{ \(i \in {1,2...,n}\)} {
+        \For{ \(r \in {1,2...,R}\)} {
+            Initalize the role count vector $ c_{i}[r] $ 
+        }
+        
+        \For{ \(j \in {1,2...,k}\)} {
+            Search for the top k result and count the frequency of each role , $ c_i[F_R(h_{ij})]\leftarrow c_i[F_R(h_{ij})]+1 $
+            
+        }
+        
+        Calculate the average number of role frequency $ \bar{c_i} = \frac{\sum_{r=1}^{R}{c_i[r]}}{ R } $
+
+        Calculate the standard deviation of role frequency $ \sigma  c_{i} = \sqrt{\frac{\sum_{r=1}^{R}{(c_{i}[r] - \bar{c_i})^2}}{R-1}} $
+    }
+
+    Get the final score of memorability $ \mathcal{M}  $ according to Equation~\ref{eq:EM_final}
+
+    Return $ \mathcal{M}  $  
+  
+\end{algorithm*}
+
+
+\begin{table*}[ht]
+    %    \setlength{\tabcolsep}{3pt}
+    \renewcommand{\arraystretch}{1.5}
+    \centering
+    \small
+    \scalebox{0.92}{
+    \begin{tabular}{p{16cm}}
+    \specialrule{\heavyrulewidth}{-\heavyrulewidth}{0pt}
+    \rowcolor[gray]{0.95} \vspace*{-8pt} {\fontsize{10pt}{12pt}\selectfont \bf Prompt Input} \vspace*{2pt} \\
+    
+    {\ttfamily\small
+    
+    \textbf{You are a passionate reader who only remembers the most exciting parts of the text.} 
+
+    
+    \textbf{You will be given a list of dialogs speaked by various players in the One Night Ultimate Werewolf Game.}
+
+    In the game, there are serval roles in the game: Werewolf, Minion, Seer, Mason, Tanner and Villager. Werewolf, Minon is part of evil team, Seer, Mason and Villager is part of the good team. Tanner is the third party. All players will speak in turn for several rounds. After the discussion rounds, players will vote to identify the Werewolf. If the Werewolf is voted out, the good team win. If a Villager or a Seer or a Mason is voted out, the Werewolf wins. If the Thinker is voted out, the Tanner wins and all the rest of players lose.
+    
+    \textbf{Below is the dialogs:}
+
+    Alpha(Alpha is Villager) says: 'Villager, I claim my role openly to promote trust among all players. I sense that Beta and Gamma exhibit behaviors that raise red flags; their actions seem more aligned with our foes. Delta, Epsilon, Theta, and Zeta, I encourage you to share your thoughts—your insights will help us discern the truth. It’s crucial we peel back the layers of possible alliances. My focus is on voting out Beta, who poses a notable threat to our good team. Together, let’s navigate this challenge and bring clarity to our mission!'
+
+    Beta(Beta is Mason) says: 'I find Alpha's claim rather bold, but I sense an ulterior motive beneath it. While he points fingers at both me and Gamma, I urge you all to consider that he might be deflecting attention from the real threat. As a Mason, I can confirm that Theta is indeed one of us, solidifying my assertion. Gamma’s behavior strikes me as suspicious, and I implore you to weigh the evidence carefully. Together, we must remain vigilant against deception, especially from those who claim roles without proof. Let’s unite our efforts and focus our sights on Gamma, for the good of our team!'
+
+    ...
+
+    \textbf{[Evaluation Steps]}
+
+    1. Read through the dialogs select 10 most memorizable key twist, select the 10 sentences (e.g. A player point out the role of other player. A player claim to be the seer, however, he is not. After one player's word, other player change their attitude.)  Write out in a step by step manner your reasoning about the criterion to be sure that your conclusion is correct.
+
+    2. Evaluate the Twist of each sentenses. Use the given scale from 1-10 to rate the level of Twist: 1 being extremaly unimportant, unmemorable and 10 being extremaly unforgetable, significant.
+    
+    3. Write in a new line to display the level of Twist. Output in format: [sentense,role,value]
+    'sentense' is the original sentense selected, 'role' is the role of the player who say this sentence, 'value' is the level of Twist 
+    Use the given scale from 1-10 to rate the level of Twist: 1 being extremaly unimportant, unrelated, do not change the game and 10 being extremaly significant, super unforgetable, widly change the game, change the players' judgement a lot.
+    
+    e.g.
+
+    [While I appreciate Beta's efforts in gathering information, I found Alpha's claims rather bewildering.,Werewolf,9.5]
+    [I’m confident that I’m a Seer and I've been observing closely.,Villager,7.3]
+    [Hello everyone.,Seer,3.2]
+
+    }
+    \\ 
+
+    \rowcolor[gray]{0.95} \vspace*{-8pt} {\fontsize{10pt}{12pt}\selectfont \bf LLM Output } \vspace*{2pt} \\
+
+    {\ttfamily\small
+
+    ['As the Seer, I reveal that Epsilon and Delta are not werewolves, so we can clear them from suspicion.',Seer,9]
+
+    ['Hey everyone! I’m just a simple Villager here, trying to keep things honest and safe for our team.',Tanner,8]
+
+    ['Oh, wow! Hi everyone! So, um, I’m just here, totally a Seer, right?',Minion,7]
+
+    ['I just want to clarify that I’m a Mason too, and I can confirm Beta is also one of us.',Mason,7]
+
+    ['Hey everyone! I’m Zeta, and I’m just a Villager here, genuinely looking out for our team.',Villager,8]
+
+    ['Hey, everyone! I’m Eta, the Seer, and I’ve been observing closely.',Werewolf,9]
+
+    ['Villager, I claim my role openly to promote trust among all players.',Villager,8]
+
+    ['Oh, wow! Hi everyone!',Minion,6]
+
+    ['Hello everyone! I’m Beta, proudly claiming my role as a Mason alongside my ally, Theta.',Mason,8]
+
+    ['As the Seer, I've checked the roles, and I'm certain that neither Epsilon nor Delta is the Werewolf.',Seer,9]
+
+    }
+
+    \\ 
+
+    \specialrule{\heavyrulewidth}{-\heavyrulewidth}{0pt}
+\end{tabular}}
+\caption{An example of the prompt of evaluation for Memorability. The content of the dialogue has been excerpted. }
+\label{tab:EWAVM_Prompt_Memorability}
+\end{table*}
+
+
+\section{Big Five Personality Generation System Analysis} \label{sec:Appendix_B5PGS_Check}
+
+In the B5P Generation System, we automatically generate textual descriptions of personality traits for the LLM before sending specific prompts. These descriptions are added into the LLM's message list, influencing the tone of the text generated by the LLM to have certain personality tendencies. Here, we want to conduct an independent evaluation of the B5P Generation System to validate its effectiveness. 
+
+The experimental design is as follows:
+
+\begin{enumerate}
+   
+    \item  Four agent personality descriptions will be pre-generated for the experiment(see Table~\ref{tab:Appendix_B5PSC}), including one baseline agent and three comparative personality descriptions generated using the B5P system. The suggested five-dimensional personality descriptions can be referenced in the table below, and the specific content of the descriptions can be found in Section~\ref{sec:B5P_System}.
+
+    \item  Make conversation by these four agents, whose roles are all considered as Villagers, with their task descriptions remaining consistent, and without any additional historical dialogue information. After cleaning up the dirty words, the LLM's returned dialogue content will be divided into different dialog lists and saved separately for each agent. Make 50 conversation requests for each agent.
+
+    \item Perform text distance analysis (as described in section~\ref{sec:Evaluation_TextDistance}) on each agent's dialog list to analyze the diversity of the returned content.
+\end{enumerate}
+
+The result of this experiment can be checked in section~\ref{sec:Experiment_B5PGS_Analysis}.
+
+\begin{table*}[ht]
+    % \scriptsize
+    \renewcommand{\arraystretch}{1.3}
+    \setlength{\tabcolsep}{10pt}
+        \centering
+        \scalebox{0.8}{
+        \begin{tabular}{ l  c  c  c  c  c }
+         \specialrule{1.5pt}{-1.5pt}{0pt}
+             & \textbf{BAgreeablenessaseline} & \textbf{Extraversion} & \textbf{Neuroticsim}  & \textbf{Openness} & \textbf{Conscientiousness}\\ 
+             \specialrule{1.0pt}{-1.0pt}{0pt}
+             Alpha(Baseline)   &   4  &  4  &  4   &  4  &  4 \\
+             Beta   &   7 & 1  &  2   &  4  &  1 \\
+             Gamma   &   4  &  7  &  7   &  6  &  3 \\
+             Delta  &   5  &  5  &  5   & 1  &  6 \\
+        \specialrule{1.5pt}{-1.5pt}{0pt}
+        \end{tabular}
+        }
+    \caption{The level of big five traits used in the experiment
+    }
+    \label{tab:Appendix_B5PSC}
+  \end{table*}

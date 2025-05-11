@@ -1,0 +1,13 @@
+{
+    "mission":"werewolf",
+    "mission_file":"werewolf_four_villager",
+    "session":"werewolf_four_villager",
+    "cover_old_session":false,
+    "settings":{
+        "USE_MISSION_JUDGE":false,
+        "UES_RANDOM_BIG_FIVE":false,
+        "USE_FAVOR":false,
+        "USE_NEXT_STRATEGY":false,
+        "USE_ANALYZE":true
+    }
+}

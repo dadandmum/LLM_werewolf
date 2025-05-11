@@ -1,0 +1,28 @@
+generate_favor.txt
+
+
+!<INPUT NAME>! agent name 
+!<INPUT AGENTS>! agent name 
+!<INPUT DIALOG_MEMORY>! previous dialogs 
+!<INPUT MISSION_JUDGE>! mission judge of this game 
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<comment>###<comment>
+
+Here are previous dialogs:
+!<INPUT DIALOG_MEMORY>!
+
+!<INPUT MISSION_JUDGEMENT>!
+
+Accroding to the dialogs above, please output how much you like the agents.
+On the scale of 1 to 10, where 1 is totally disliked (e.g. no interested, uncomfortable) and 10 is extremely liked (e.g. highly appriciate and have great expectations), please rate the your favor for the agents:!<INPUT AGENTS>!
+
+Output in format : <player_name,favor>
+
+for example:
+<Alpha,2>
+<Beta,3>
+<Theta,6>
+
+You are !<INPUT NAME>!
+now output the rate in format,DO NOT output other words.

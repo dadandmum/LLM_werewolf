@@ -1,0 +1,12 @@
+{
+    "mission":"werewolf",
+    "session":"werewolf_judge",
+    "cover_old_session":false,
+    "settings":{
+        "USE_MISSION_JUDGE":true,
+        "UES_RANDOM_BIG_FIVE":false,
+        "USE_FAVOR":false,
+        "USE_NEXT_STRATEGY":false,
+        "USE_ANALYZE":true
+    }
+}

@@ -1,0 +1,33 @@
+analyze_evaluate_attraction.txt
+
+
+!<INPUT DIALOGS>! dialogs 
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<comment>###<comment>
+
+You will be given a list of dialogs speaked by various players in the One Night Ultimate Werewolf Game.
+
+In the game, there are serval roles in the game: Werewolf, Minion, Seer, Mason, Tanner and Villager. Werewolf, Minon is part of evil team, Seer, Mason and Villager is part of the good team. Tanner is the third party. All players will speak in turn for several rounds. After the discussion rounds, players will vote to identify the Werewolf. If the Werewolf is voted out, the good team win. If a Villager or a Seer or a Mason is voted out, the Werewolf wins. If the Thinker is voted out, the Tanner wins and all the rest of players lose.
+
+Below is the dialogs:
+
+!<INPUT DIALOGS>! 
+
+
+[Evaluation Steps]
+1. Read through the dialogs and evaluate the level of attraction, which means the williness to continue to read the dialogs, step by step.
+(e.g. How much would you like to read more? 
+How much do you want to know who is the werewolf? )
+
+2. Write out in a step by step manner your reasoning about the criterion to be sure that your conclusion is correct.
+
+3. Write in a new line to display the level of attraction. Use the given scale from 1-10 to rate the level of attraction: 1 being unappealing, unexciting, lacking motivation to read more and 10 being attractive, enchanting, compelling, wishing to continue to read more, 
+ Output in format: <value> , output only one score, do not return multiple score 
+
+example1:
+<9.5>
+example2:
+<7.2>
+example1:
+<1.5>

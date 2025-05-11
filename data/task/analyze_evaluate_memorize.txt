@@ -1,0 +1,30 @@
+analyze_evaluate_memorize.txt
+
+
+!<INPUT DIALOGS>! dialogs 
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<comment>###<comment>
+
+You will be given a list of dialogs speaked by various players in the One Night Ultimate Werewolf Game.
+
+In the game, there are serval roles in the game: Werewolf, Minion, Seer, Mason, Tanner and Villager. Werewolf, Minon is part of evil team, Seer, Mason and Villager is part of the good team. Tanner is the third party. All players will speak in turn for several rounds. After the discussion rounds, players will vote to identify the Werewolf. If the Werewolf is voted out, the good team win. If a Villager or a Seer or a Mason is voted out, the Werewolf wins. If the Thinker is voted out, the Tanner wins and all the rest of players lose.
+
+Below is the dialogs:
+
+!<INPUT DIALOGS>! 
+
+
+[Evaluation Steps]
+1. Read through the dialogs select 10 most memorizable key twist, select the 10 sentences (e.g. A player point out the role of other player. A player claim to be the seer, however, he is not. After one player's word, other player change their attitude.)  Write out in a step by step manner your reasoning about the criterion to be sure that your conclusion is correct.
+
+2. Evaluate the Twist of each sentenses. Use the given scale from 1-10 to rate the level of Twist: 1 being extremaly unimportant, unmemorable and 10 being extremaly unforgetable, significant.
+
+3. Write in a new line to display the level of Twist. Output in format: <sentense,role,value>
+'sentense' is the original sentense selected, 'role' is the role of the player who say this sentence, 'value' is the level of Twist 
+Use the given scale from 1-10 to rate the level of Twist: 1 being extremaly unimportant, unrelated, do not change the game and 10 being extremaly significant, super unforgetable, widly change the game, change the players' judgement a lot.
+
+e.g
+<'While I appreciate Beta's efforts in gathering information, I found Alpha's claims rather bewildering.',Werewolf,9.5>
+<'I’m confident that I’m a Seer and I've been observing closely.',Villager,7.3>
+<'Hello everyone.',Seer,3.2>

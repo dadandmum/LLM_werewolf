@@ -1,0 +1,313 @@
+\begin{thebibliography}{62}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Achiam et~al.(2023)Achiam, Adler, Agarwal, Ahmad, Akkaya, Aleman, Almeida, Altenschmidt, Altman, Anadkat et~al.}]{achiam2023gpt}
+Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia~Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et~al. 2023.
+\newblock Gpt-4 technical report.
+\newblock \emph{arXiv preprint arXiv:2303.08774}.
+
+\bibitem[{Aher et~al.(2023)Aher, Arriaga, and Kalai}]{aher2023using}
+Gati~V Aher, Rosa~I Arriaga, and Adam~Tauman Kalai. 2023.
+\newblock Using large language models to simulate multiple humans and replicate human subject studies.
+\newblock In \emph{International Conference on Machine Learning}, pages 337--371. PMLR.
+
+\bibitem[{Ahn et~al.(2022)Ahn, Brohan, Brown, Chebotar, Cortes, David, Finn, Fu, Gopalakrishnan, Hausman et~al.}]{ahn2022can}
+Michael Ahn, Anthony Brohan, Noah Brown, Yevgen Chebotar, Omar Cortes, Byron David, Chelsea Finn, Chuyuan Fu, Keerthana Gopalakrishnan, Karol Hausman, et~al. 2022.
+\newblock Do as i can, not as i say: Grounding language in robotic affordances.
+\newblock \emph{arXiv preprint arXiv:2204.01691}.
+
+\bibitem[{Bi and Tanaka(2016)}]{bi2016human}
+Xiaoheng Bi and Tetsuro Tanaka. 2016.
+\newblock Human-side strategies in the werewolf game against the stealth werewolf strategy.
+\newblock In \emph{International Conference on Computers and Games}, pages 93--102. Springer.
+
+\bibitem[{Booch et~al.(2021)Booch, Fabiano, Horesh, Kate, Lenchner, Linck, Loreggia, Murgesan, Mattei, Rossi et~al.}]{booch2021thinking}
+Grady Booch, Francesco Fabiano, Lior Horesh, Kiran Kate, Jonathan Lenchner, Nick Linck, Andreas Loreggia, Keerthiram Murgesan, Nicholas Mattei, Francesca Rossi, et~al. 2021.
+\newblock Thinking fast and slow in ai.
+\newblock In \emph{Proceedings of the AAAI Conference on Artificial Intelligence}, volume~35, pages 15042--15046.
+
+\bibitem[{Caron and Srivastava(2022)}]{caron2022identifying}
+Graham Caron and Shashank Srivastava. 2022.
+\newblock Identifying and manipulating the personality traits of language models.
+\newblock \emph{arXiv preprint arXiv:2212.10276}.
+
+\bibitem[{Cattell et~al.(1992)Cattell, Eber, and Tatsuoka}]{cattell1992handbook}
+Raymond~Bernard Cattell, Herbert~W Eber, and Maurice~M Tatsuoka. 1992.
+\newblock Handbook for the sixteen personality factor questionnaire (16 pf).
+\newblock \emph{(No Title)}.
+
+\bibitem[{Cho et~al.(2015)Cho, Chan, and Adali}]{cho2015survey}
+Jin-Hee Cho, Kevin Chan, and Sibel Adali. 2015.
+\newblock A survey on trust modeling.
+\newblock \emph{ACM Computing Surveys (CSUR)}, 48(2):1--40.
+
+\bibitem[{Costa and McCrae(2008)}]{costa2008revised}
+Paul~T Costa and Robert~R McCrae. 2008.
+\newblock The revised neo personality inventory (neo-pi-r).
+\newblock \emph{The SAGE handbook of personality theory and assessment}, 2(2):179--198.
+
+\bibitem[{Costa and McCrae(1999)}]{costa1999five}
+PT~Costa and RR~McCrae. 1999.
+\newblock A five-factor theory of personality.
+\newblock \emph{Handbook of personality: Theory and research}, 2(01):1999.
+
+\bibitem[{Costa~Jr and McCrae(1976)}]{costa1976age}
+Paul~T Costa~Jr and Robert~R McCrae. 1976.
+\newblock Age differences in personality structure: A cluster analytic approach.
+\newblock \emph{Journal of gerontology}, 31(5):564--570.
+
+\bibitem[{Daniel(2017)}]{daniel2017thinking}
+Kahneman Daniel. 2017.
+\newblock \emph{Thinking, fast and slow}.
+
+\bibitem[{Demszky et~al.(2023)Demszky, Yang, Yeager, Bryan, Clapper, Chandhok, Eichstaedt, Hecht, Jamieson, Johnson et~al.}]{demszky2023using}
+Dorottya Demszky, Diyi Yang, David~S Yeager, Christopher~J Bryan, Margarett Clapper, Susannah Chandhok, Johannes~C Eichstaedt, Cameron Hecht, Jeremy Jamieson, Meghann Johnson, et~al. 2023.
+\newblock Using large language models in psychology.
+\newblock \emph{Nature Reviews Psychology}, 2(11):688--701.
+
+\bibitem[{Dillion et~al.(2023)Dillion, Tandon, Gu, and Gray}]{dillion2023can}
+Danica Dillion, Niket Tandon, Yuling Gu, and Kurt Gray. 2023.
+\newblock Can ai language models replace human participants?
+\newblock \emph{Trends in Cognitive Sciences}, 27(7):597--600.
+
+\bibitem[{FAIR et~al.(2022)FAIR, Bakhtin, Brown, Dinan, Farina, Flaherty, Fried, Goff, Gray, Hu et~al.}]{meta2022human}
+Meta Fundamental AI Research Diplomacy Team~(FAIR)† FAIR, Anton Bakhtin, Noam Brown, Emily Dinan, Gabriele Farina, Colin Flaherty, Daniel Fried, Andrew Goff, Jonathan Gray, Hengyuan Hu, et~al. 2022.
+\newblock Human-level play in the game of diplomacy by combining language models with strategic reasoning.
+\newblock \emph{Science}, 378(6624):1067--1074.
+
+\bibitem[{Gao et~al.(2023)Gao, Lan, Lu, Mao, Piao, Wang, Jin, and Li}]{gao2023social}
+Chen Gao, Xiaochong Lan, Zhihong Lu, Jinzhu Mao, Jinghua Piao, Huandong Wang, Depeng Jin, and Yong Li. 2023.
+\newblock Social-network simulation system with large language model-empowered agents.
+\newblock \emph{arXiv preprint arXiv:2307.14984}.
+
+\bibitem[{Goldberg et~al.(2006)Goldberg, Johnson, Eber, Hogan, Ashton, Cloninger, and Gough}]{goldberg2006international}
+Lewis~R Goldberg, John~A Johnson, Herbert~W Eber, Robert Hogan, Michael~C Ashton, C~Robert Cloninger, and Harrison~G Gough. 2006.
+\newblock The international personality item pool and the future of public-domain personality measures.
+\newblock \emph{Journal of Research in personality}, 40(1):84--96.
+
+\bibitem[{Hendrycks et~al.(2020)Hendrycks, Burns, Basart, Zou, Mazeika, Song, and Steinhardt}]{hendrycks2020measuring}
+Dan Hendrycks, Collin Burns, Steven Basart, Andy Zou, Mantas Mazeika, Dawn Song, and Jacob Steinhardt. 2020.
+\newblock Measuring massive multitask language understanding.
+\newblock \emph{arXiv preprint arXiv:2009.03300}.
+
+\bibitem[{Horton(2023)}]{horton2023large}
+John~J Horton. 2023.
+\newblock Large language models as simulated economic agents: What can we learn from homo silicus?
+\newblock Technical report, National Bureau of Economic Research.
+
+\bibitem[{Jin et~al.(2024)Jin, Wang, Du, Fang, Zhang, and Wang}]{jin2024learning}
+Xuanfa Jin, Ziyan Wang, Yali Du, Meng Fang, Haifeng Zhang, and Jun Wang. 2024.
+\newblock Learning to discuss strategically: A case study on one night ultimate werewolf.
+\newblock \emph{arXiv preprint arXiv:2405.19946}.
+
+\bibitem[{John et~al.(2008)John, Naumann, and Soto}]{john2008paradigm}
+Oliver~P John, Laura~P Naumann, and Christopher~J Soto. 2008.
+\newblock Paradigm shift to the integrative big five trait taxonomy.
+\newblock \emph{Handbook of personality: Theory and research}, 3(2):114--158.
+
+\bibitem[{Kahneman(1982)}]{kahneman1982psychology}
+D~Kahneman. 1982.
+\newblock The psychology of preferences.
+\newblock \emph{Scientific American}.
+
+\bibitem[{Kahneman and Tversky(2013)}]{kahneman2013prospect}
+Daniel Kahneman and Amos Tversky. 2013.
+\newblock Prospect theory: An analysis of decision under risk.
+\newblock In \emph{Handbook of the fundamentals of financial decision making: Part I}, pages 99--127. World Scientific.
+
+\bibitem[{Karra et~al.(2022)Karra, Nguyen, and Tulabandhula}]{karra2022estimating}
+Saketh~Reddy Karra, Son~The Nguyen, and Theja Tulabandhula. 2022.
+\newblock Estimating the personality of white-box language models.
+\newblock \emph{arXiv preprint arXiv:2204.12000}.
+
+\bibitem[{Li et~al.(2023)Li, Hammoud, Itani, Khizbullin, and Ghanem}]{li2023camel}
+Guohao Li, Hasan Hammoud, Hani Itani, Dmitrii Khizbullin, and Bernard Ghanem. 2023.
+\newblock Camel: Communicative agents for" mind" exploration of large language model society.
+\newblock \emph{Advances in Neural Information Processing Systems}, 36:51991--52008.
+
+\bibitem[{Li et~al.(2022)Li, Li, Joty, Liu, Huang, Qiu, and Bing}]{li2022does}
+Xingxuan Li, Yutong Li, Shafiq Joty, Linlin Liu, Fei Huang, Lin Qiu, and Lidong Bing. 2022.
+\newblock Does gpt-3 demonstrate psychopathy? evaluating large language models from a psychological perspective.
+\newblock \emph{arXiv preprint arXiv:2212.10529}.
+
+\bibitem[{Light et~al.(2023)Light, Cai, Shen, and Hu}]{light2023avalonbench}
+Jonathan Light, Min Cai, Sheng Shen, and Ziniu Hu. 2023.
+\newblock Avalonbench: Evaluating llms playing the game of avalon.
+\newblock In \emph{NeurIPS 2023 Foundation Models for Decision Making Workshop}.
+
+\bibitem[{Liu et~al.(2023)Liu, Jiang, Zhang, Liu, Zhang, Biswas, and Stone}]{liu2023llm+}
+Bo~Liu, Yuqian Jiang, Xiaohan Zhang, Qiang Liu, Shiqi Zhang, Joydeep Biswas, and Peter Stone. 2023.
+\newblock Llm+ p: Empowering large language models with optimal planning proficiency.
+\newblock \emph{arXiv preprint arXiv:2304.11477}.
+
+\bibitem[{Luhmann(2018)}]{luhmann2018trust}
+Niklas Luhmann. 2018.
+\newblock \emph{Trust and power}.
+\newblock John Wiley \& Sons.
+
+\bibitem[{Madaan et~al.(2024)Madaan, Tandon, Gupta, Hallinan, Gao, Wiegreffe, Alon, Dziri, Prabhumoye, Yang et~al.}]{madaan2024self}
+Aman Madaan, Niket Tandon, Prakhar Gupta, Skyler Hallinan, Luyu Gao, Sarah Wiegreffe, Uri Alon, Nouha Dziri, Shrimai Prabhumoye, Yiming Yang, et~al. 2024.
+\newblock Self-refine: Iterative refinement with self-feedback.
+\newblock \emph{Advances in Neural Information Processing Systems}, 36.
+
+\bibitem[{McCrae and Costa(1987)}]{mccrae1987validation}
+Robert~R McCrae and Paul~T Costa. 1987.
+\newblock Validation of the five-factor model of personality across instruments and observers.
+\newblock \emph{Journal of personality and social psychology}, 52(1):81.
+
+\bibitem[{McCrae and Costa~Jr(1991)}]{mccrae1991neo}
+Robert~R McCrae and Paul~T Costa~Jr. 1991.
+\newblock The neo personality inventory: Using the five-factor modei in counseling.
+\newblock \emph{Journal of Counseling \& Development}, 69(4):367--372.
+
+\bibitem[{McCrae and Costa~Jr(2004)}]{mccrae2004contemplated}
+Robert~R McCrae and Paul~T Costa~Jr. 2004.
+\newblock A contemplated revision of the neo five-factor inventory.
+\newblock \emph{Personality and individual differences}, 36(3):587--596.
+
+\bibitem[{McCrae and Costa(1989)}]{mccrae1989neo}
+RR~McCrae and PT~Costa. 1989.
+\newblock The neo-pi/neo-ffi manual supplement.
+\newblock \emph{Odessa, FL: Psychological Assessment Resources. Google Scholar}.
+
+\bibitem[{Mikolov(2013)}]{mikolov2013efficient}
+Tomas Mikolov. 2013.
+\newblock Efficient estimation of word representations in vector space.
+\newblock \emph{arXiv preprint arXiv:1301.3781}.
+
+\bibitem[{Neelakantan et~al.(2022)Neelakantan, Xu, Puri, Radford, Han, Tworek, Yuan, Tezak, Kim, Hallacy et~al.}]{neelakantan2022text}
+Arvind Neelakantan, Tao Xu, Raul Puri, Alec Radford, Jesse~Michael Han, Jerry Tworek, Qiming Yuan, Nikolas Tezak, Jong~Wook Kim, Chris Hallacy, et~al. 2022.
+\newblock Text and code embeddings by contrastive pre-training.
+\newblock \emph{arXiv preprint arXiv:2201.10005}.
+
+\bibitem[{Ouyang et~al.(2022)Ouyang, Wu, Jiang, Almeida, Wainwright, Mishkin, Zhang, Agarwal, Slama, Ray et~al.}]{ouyang2022training}
+Long Ouyang, Jeffrey Wu, Xu~Jiang, Diogo Almeida, Carroll Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, et~al. 2022.
+\newblock Training language models to follow instructions with human feedback.
+\newblock \emph{Advances in neural information processing systems}, 35:27730--27744.
+
+\bibitem[{Pan and Zeng(2023)}]{pan2023llms}
+Keyu Pan and Yawen Zeng. 2023.
+\newblock Do llms possess a personality? making the mbti test an amazing evaluation for large language models.
+\newblock \emph{arXiv preprint arXiv:2307.16180}.
+
+\bibitem[{Park et~al.(2023)Park, O'Brien, Cai, Morris, Liang, and Bernstein}]{park2023generative}
+Joon~Sung Park, Joseph O'Brien, Carrie~Jun Cai, Meredith~Ringel Morris, Percy Liang, and Michael~S Bernstein. 2023.
+\newblock Generative agents: Interactive simulacra of human behavior.
+\newblock In \emph{Proceedings of the 36th annual acm symposium on user interface software and technology}, pages 1--22.
+
+\bibitem[{Park et~al.(2022)Park, Popowski, Cai, Morris, Liang, and Bernstein}]{park2022social}
+Joon~Sung Park, Lindsay Popowski, Carrie Cai, Meredith~Ringel Morris, Percy Liang, and Michael~S Bernstein. 2022.
+\newblock Social simulacra: Creating populated prototypes for social computing systems.
+\newblock In \emph{Proceedings of the 35th Annual ACM Symposium on User Interface Software and Technology}, pages 1--18.
+
+\bibitem[{Qian et~al.(2023)Qian, Cong, Yang, Chen, Su, Xu, Liu, and Sun}]{qian2023communicative}
+Chen Qian, Xin Cong, Cheng Yang, Weize Chen, Yusheng Su, Juyuan Xu, Zhiyuan Liu, and Maosong Sun. 2023.
+\newblock Communicative agents for software development.
+\newblock \emph{arXiv preprint arXiv:2307.07924}, 6.
+
+\bibitem[{Riedl and Bulitko(2012)}]{riedl2012interactive}
+Mark Riedl and Vadim Bulitko. 2012.
+\newblock Interactive narrative: A novel application of artificial intelligence for computer games.
+\newblock In \emph{Proceedings of the AAAI Conference on Artificial Intelligence}, volume~26, pages 2160--2165.
+
+\bibitem[{Roberts and DelVecchio(2000)}]{roberts2000rank}
+Brent~W Roberts and Wendy~F DelVecchio. 2000.
+\newblock The rank-order consistency of personality traits from childhood to old age: a quantitative review of longitudinal studies.
+\newblock \emph{Psychological bulletin}, 126(1):3.
+
+\bibitem[{Safdari et~al.(2023)Safdari, Serapio-Garc{\'\i}a, Crepy, Fitz, Romero, Sun, Abdulhai, Faust, and Matari{\'c}}]{safdari2023personality}
+M~Safdari, G~Serapio-Garc{\'\i}a, C~Crepy, S~Fitz, P~Romero, L~Sun, M~Abdulhai, A~Faust, and M~Matari{\'c}. 2023.
+\newblock Personality traits in large language models. arxiv.
+\newblock \emph{Preprint posted online August}, 28.
+
+\bibitem[{Serrino et~al.(2019)Serrino, Kleiman-Weiner, Parkes, and Tenenbaum}]{serrino2019finding}
+Jack Serrino, Max Kleiman-Weiner, David~C Parkes, and Josh Tenenbaum. 2019.
+\newblock Finding friend and foe in multi-agent games.
+\newblock \emph{Advances in Neural Information Processing Systems}, 32.
+
+\bibitem[{Shao et~al.(2023)Shao, Li, Dai, and Qiu}]{shao2023character}
+Yunfan Shao, Linyang Li, Junqi Dai, and Xipeng Qiu. 2023.
+\newblock Character-llm: A trainable agent for role-playing.
+\newblock \emph{arXiv preprint arXiv:2310.10158}.
+
+\bibitem[{Simon(1991)}]{simon1991bounded}
+Herbert~A Simon. 1991.
+\newblock Bounded rationality and organizational learning.
+\newblock \emph{Organization science}, 2(1):125--134.
+
+\bibitem[{Turian et~al.(2010)Turian, Ratinov, and Bengio}]{turian2010word}
+Joseph Turian, Lev Ratinov, and Yoshua Bengio. 2010.
+\newblock Word representations: a simple and general method for semi-supervised learning.
+\newblock In \emph{Proceedings of the 48th annual meeting of the association for computational linguistics}, pages 384--394.
+
+\bibitem[{Wan et~al.(2024)Wan, Zhang, Suria, Yao, Wang, Coady, and Prpa}]{wan2024building}
+Hongyu Wan, Jinda Zhang, Abdulaziz~Arif Suria, Bingsheng Yao, Dakuo Wang, Yvonne Coady, and Mirjana Prpa. 2024.
+\newblock Building llm-based ai agents in social virtual reality.
+\newblock In \emph{Extended Abstracts of the CHI Conference on Human Factors in Computing Systems}, pages 1--7.
+
+\bibitem[{Wang et~al.(2023)Wang, Liu, Zheng, Qi, Chen, Yang, Zhao, Wang, Song, and Huang}]{wang2023avalon}
+Shenzhi Wang, Chang Liu, Zilong Zheng, Siyuan Qi, Shuo Chen, Qisen Yang, Andrew Zhao, Chaofei Wang, Shiji Song, and Gao Huang. 2023.
+\newblock Avalon's game of thoughts: Battle against deception through recursive contemplation.
+\newblock \emph{arXiv preprint arXiv:2310.01320}.
+
+\bibitem[{Wang et~al.(2024)Wang, Xiao, Huang, Yuan, Xu, Guo, Tu, Fei, Leng, Wang et~al.}]{wang2024incharacter}
+Xintao Wang, Yunze Xiao, Jen-tse Huang, Siyu Yuan, Rui Xu, Haoran Guo, Quan Tu, Yaying Fei, Ziang Leng, Wei Wang, et~al. 2024.
+\newblock Incharacter: Evaluating personality fidelity in role-playing agents through psychological interviews.
+\newblock In \emph{Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)}, pages 1840--1873.
+
+\bibitem[{Wei et~al.(2022)Wei, Wang, Schuurmans, Bosma, Xia, Chi, Le, Zhou et~al.}]{wei2022chain}
+Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Fei Xia, Ed~Chi, Quoc~V Le, Denny Zhou, et~al. 2022.
+\newblock Chain-of-thought prompting elicits reasoning in large language models.
+\newblock \emph{Advances in neural information processing systems}, 35:24824--24837.
+
+\bibitem[{Wu et~al.(2024)Wu, Zhu, Yang, Xu, Fu, Wei, and Fu}]{wu2024enhance}
+Shuang Wu, Liwen Zhu, Tao Yang, Shiwei Xu, Qiang Fu, Yang Wei, and Haobo Fu. 2024.
+\newblock Enhance reasoning for large language models in the game werewolf.
+\newblock \emph{arXiv preprint arXiv:2402.02330}.
+
+\bibitem[{Xu et~al.(2023)Xu, Wang, Li, Luo, Wang, Liu, and Liu}]{xu2023exploring}
+Yuzhuang Xu, Shuo Wang, Peng Li, Fuwen Luo, Xiaolong Wang, Weidong Liu, and Yang Liu. 2023.
+\newblock Exploring large language models for communication games: An empirical study on werewolf.
+\newblock \emph{arXiv preprint arXiv:2309.04658}.
+
+\bibitem[{Yadkori et~al.(2024)Yadkori, Kuzborskij, Gy{\"o}rgy, and Szepesv{\'a}ri}]{yadkori2024believe}
+Yasin~Abbasi Yadkori, Ilja Kuzborskij, Andr{\'a}s Gy{\"o}rgy, and Csaba Szepesv{\'a}ri. 2024.
+\newblock To believe or not to believe your llm.
+\newblock \emph{arXiv preprint arXiv:2406.02543}.
+
+\bibitem[{Yannakakis(2012)}]{yannakakis2012game}
+Geogios~N Yannakakis. 2012.
+\newblock Game ai revisited.
+\newblock In \emph{Proceedings of the 9th conference on Computing Frontiers}, pages 285--292.
+
+\bibitem[{Yao et~al.(2024)Yao, Yu, Zhao, Shafran, Griffiths, Cao, and Narasimhan}]{yao2024tree}
+Shunyu Yao, Dian Yu, Jeffrey Zhao, Izhak Shafran, Tom Griffiths, Yuan Cao, and Karthik Narasimhan. 2024.
+\newblock Tree of thoughts: Deliberate problem solving with large language models.
+\newblock \emph{Advances in Neural Information Processing Systems}, 36.
+
+\bibitem[{Yao et~al.(2022)Yao, Zhao, Yu, Du, Shafran, Narasimhan, and Cao}]{yao2022react}
+Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, and Yuan Cao. 2022.
+\newblock React: Synergizing reasoning and acting in language models.
+\newblock \emph{arXiv preprint arXiv:2210.03629}.
+
+\bibitem[{Zhang et~al.(2023)Zhang, Du, Shan, Zhou, Du, Tenenbaum, Shu, and Gan}]{zhang2023building}
+Hongxin Zhang, Weihua Du, Jiaming Shan, Qinhong Zhou, Yilun Du, Joshua~B Tenenbaum, Tianmin Shu, and Chuang Gan. 2023.
+\newblock Building cooperative embodied agents modularly with large language models.
+\newblock \emph{arXiv preprint arXiv:2307.02485}.
+
+\bibitem[{Zhao et~al.(2024)Zhao, Huang, Xu, Lin, Liu, and Huang}]{zhao2024expel}
+Andrew Zhao, Daniel Huang, Quentin Xu, Matthieu Lin, Yong-Jin Liu, and Gao Huang. 2024.
+\newblock Expel: Llm agents are experiential learners.
+\newblock In \emph{Proceedings of the AAAI Conference on Artificial Intelligence}, volume~38, pages 19632--19642.
+
+\bibitem[{Zhou et~al.(2023)Zhou, Zhu, Mathur, Zhang, Yu, Qi, Morency, Bisk, Fried, Neubig et~al.}]{zhou2023sotopia}
+Xuhui Zhou, Hao Zhu, Leena Mathur, Ruohong Zhang, Haofei Yu, Zhengyang Qi, Louis-Philippe Morency, Yonatan Bisk, Daniel Fried, Graham Neubig, et~al. 2023.
+\newblock Sotopia: Interactive evaluation for social intelligence in language agents.
+\newblock \emph{arXiv preprint arXiv:2310.11667}.
+
+\bibitem[{Zhu et~al.(2023)Zhu, Chen, Tian, Tao, Su, Yang, Huang, Li, Lu, Wang et~al.}]{zhu2023ghost}
+Xizhou Zhu, Yuntao Chen, Hao Tian, Chenxin Tao, Weijie Su, Chenyu Yang, Gao Huang, Bin Li, Lewei Lu, Xiaogang Wang, et~al. 2023.
+\newblock Ghost in the minecraft: Generally capable agents for open-world environments via large language models with text-based knowledge and memory.
+\newblock \emph{arXiv preprint arXiv:2305.17144}.
+
+\end{thebibliography}

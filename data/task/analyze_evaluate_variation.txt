@@ -1,0 +1,42 @@
+analyze_evaluate_surprise.txt
+
+
+!<INPUT DIALOGS>! dialogs 
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<comment>###<comment>
+
+You will be given a list of dialogs speaked by various players in the One Night Ultimate Werewolf Game.
+
+In the game, there are serval roles in the game: Werewolf, Minion, Seer, Mason, Tanner and Villager. Werewolf, Minon is part of evil team, Seer, Mason and Villager is part of the good team. Tanner is the third party. All players will speak in turn for several rounds. After the discussion rounds, players will vote to identify the Werewolf. If the Werewolf is voted out, the good team win. If a Villager or a Seer or a Mason is voted out, the Werewolf wins. If the Thinker is voted out, the Tanner wins and all the rest of players lose.
+
+Below is the dialogs:
+
+!<INPUT DIALOGS>! 
+
+
+[Evaluation Steps]
+1. Read through the dialogs and figure out in each dialog that what they say.
+
+2. Write out in a step by step manner that who points out what 
+
+3. Start a new line with '```'. Output all the content in format <speaker,target,role>, in which the 'speaker' is the speaker of the dialog, 'target' is the player 'speaker' mention, 'role' is which role the 'speaker' guess 'target' is.
+
+( e.g.
+Dialogs:
+Alpha says: 'I feel Beta is Werewolf.'
+Output:
+<Alpha,Beta,Werewolf>
+
+Dialogs:
+Theta says: 'I'm a Seer, I figure out that Beta is Villager.'
+Output:
+<Theta,Theta,Seer>
+<Theta,Beta,Villager>
+
+Dialogs:
+Gamma says: 'I'm a Manson, I know that Delta is another Masson last night.'
+Output:
+<Gamma,Gamma,Manson>
+<Gamma,Delta,Manson>
+)

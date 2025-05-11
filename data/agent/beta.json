@@ -1,0 +1,9 @@
+{
+    "id":"beta",
+    "name":"Beta",
+    "default":"Beta is a good man.",
+    "description":"Beta is a bad man.",
+    "temperature" : 1.0,
+    "language":"EN"
+
+}

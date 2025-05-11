@@ -1,0 +1,35 @@
+mission_werewolf_judge.txt
+
+
+!<INPUT NAME>! agent name 
+!<INPUT MISSION>! the description of mission 
+!<INPUT DIALOG_MEMORY>! previous dialogs 
+!<INPUT AGENTS>! the list of avaiable agents 
+!<INPUT ROLES>! the list of avaiable roles in the game  
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<comment>###<comment>
+
+!<INPUT MISSION>!
+
+The previous dialog is:
+!<INPUT DIALOG_MEMORY>!
+
+The players in the game
+!<INPUT AGENTS>!
+
+!<INPUT AGENT_FAVORS>!
+
+The roles in the game
+!<INPUT ROLES>!
+
+Output the posibility of each players's role by their dialogs. 
+The posibility is in the range of 0.01-1.00
+Output in format : <player_name,role,posibility>
+
+for example:
+<Alpha,Seer,0.45>
+<Beta,Werewolf,0.68>
+<Theta,Villager,0.81> 
+
+now output the judgement in format,DO NOT output other words:

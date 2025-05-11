@@ -1,0 +1,9 @@
+{
+    "id":"gamma",
+    "name":"Gamma",
+    "infdefaulto":"Gamma is a good man.",
+    "description":"Gamma is a bad man.",
+    "temperature" : 1.0,
+    "language":"EN"
+
+}

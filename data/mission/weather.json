@@ -1,0 +1,7 @@
+{
+    "name":"weather",
+    "introduction":"The mission is used for letting the agents to talk about today's weather",
+    "description":"you should talk about the weather today",
+    "personal":"Today's weather is <WEATHER>",
+    "weather_list":["Sunny","Rainy","Cloudy","Hot, Shinning" ]
+}

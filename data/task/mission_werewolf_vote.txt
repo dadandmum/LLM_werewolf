@@ -1,0 +1,34 @@
+mission_werewolf_vote.txt
+
+
+!<INPUT NAME>! agent name 
+!<INPUT MISSION>! the description of mission 
+!<INPUT DIALOG_MEMORY>! previous dialogs 
+!<INPUT AGENTS>! the list of avaiable agents 
+!<INPUT ROLES>! the list of avaiable roles in the game  
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<comment>###<comment>
+
+!<INPUT MISSION>!
+
+The previous dialog is:
+!<INPUT DIALOG_MEMORY>!
+
+The players in the game
+!<INPUT AGENTS>!
+
+!<INPUT AGENT_FAVORS>!
+
+Output the players you think that is werewolf. You should only output one player.
+
+output format:
+<player's name>
+
+e.g.
+<Alpha>
+
+e.g.
+<Beta>
+
+Please output your choice, output only one player, DO NOT output other words.

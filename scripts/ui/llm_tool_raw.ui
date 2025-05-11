@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>774</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>10</y>
+      <width>291</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="AgentLayout">
+     <item>
+      <layout class="QHBoxLayout" name="horizon_agent">
+       <item>
+        <widget class="QLabel" name="agentLabel">
+         <property name="text">
+          <string>Agent</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="agentCombo"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="agentTypeLabel">
+         <property name="text">
+          <string>InfoType</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="agentInfoCombo"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QLabel" name="agentTypeLabel_4">
+       <property name="text">
+        <string>AgentInfo</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QPlainTextEdit" name="agentInfo">
+         <property name="lineWidth">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>10</y>
+      <width>491</width>
+      <height>471</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="taskLayout">
+     <item>
+      <layout class="QHBoxLayout" name="horizon_agent_2">
+       <item>
+        <widget class="QLabel" name="taskLabel">
+         <property name="text">
+          <string>Task</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="taskCombo"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QLabel" name="TaskParameterLabel">
+         <property name="text">
+          <string>Parameter</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QPlainTextEdit" name="taskParameterText">
+         <property name="lineWidth">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QLabel" name="FullTaskLabel">
+       <property name="text">
+        <string>Full Prompt</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPlainTextEdit" name="TaskFullText">
+       <property name="lineWidth">
+        <number>1</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>505</y>
+      <width>781</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="result">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <item alignment="Qt::AlignmentFlag::AlignRight">
+        <widget class="QLabel" name="modelLabel">
+         <property name="text">
+          <string>Model</string>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignmentFlag::AlignLeft">
+        <widget class="QComboBox" name="modelCombo">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_7">
+       <item>
+        <widget class="QPushButton" name="confirmButton">
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="contextMenuPolicy">
+          <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LayoutDirection::LeftToRight</enum>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>Confirm</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+         <property name="default">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QLabel" name="resultLabel">
+       <property name="text">
+        <string>Result</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPlainTextEdit" name="resultText">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>33</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

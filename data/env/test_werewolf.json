@@ -1,0 +1,16 @@
+{
+    
+    "agent_list":["alpha","beta","gamma"],
+    "mission":"werewolf",
+    "session":"temp_test",
+    "cover_old_session":true,
+    "roles":["werewolf","seer","villager"],
+    "settings":{
+        "USE_MISSION_JUDGE":false,
+        "UES_RANDOM_BIG_FIVE":true,
+        "USE_FAVOR":true,
+        "USE_DYNAMIC_STRATEGY":false,
+        "USE_NEXT_STRATEGY":false,
+        "USE_ANALYZE":true
+    }
+}
