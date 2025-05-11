@@ -14,6 +14,7 @@ pip install filelock
 pip install wordcloud
 pip install matplotlib
 pip install sentence_transformers
+pip install pyside6
 ```
 
 ##  Set API key
@@ -27,8 +28,15 @@ pip install sentence_transformers
 ```
 
 ## Run a werewolf game
-1. Run the bat file `bats/run_werewolf.bat`, the result will be saved to cache\temp\[the folder with task name and date]
-2. Run the tool bat file `bat/run_tool.bat'. It will run an interactive window to test the prompt template.
+
+### Demo game
+Run the bat file `bats/run_werewolf_demo.bat`
+
+### Run Prompt Tool
+Run the tool bat file `bat/run_tool.bat'. It will run an interactive window to test the prompt template.
+
+### Run Full Game 
+Run the bat file `bats/run_werewolf.bat`, the result will be saved to cache\temp\[the folder with task name and date]
 
 
 # Reference

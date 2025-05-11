@@ -2,8 +2,10 @@ import sys
 
 class GlobalSettings:
     # ======= Model ======
-    LLM_MODEL = "gpt-4o-mini"
-    LLM_EMBEDDING_MODEL = "text-embedding-3-small"
+    # LLM_MODEL = "gpt-4o-mini"
+    LLM_MODEL = "qwen-plus"
+    # LLM_EMBEDDING_MODEL = "text-embedding-3-small"
+    LLM_EMBEDDING_MODEL = "text-embedding-v2"
     
     LLM_MODEL_DICT={
         # 'default':'gpt-3.5-turbo-0125',

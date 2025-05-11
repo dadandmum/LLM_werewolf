@@ -26,8 +26,8 @@ class ChatModel:
 
 
         # if ebmodel is None:
-        self.embedding_model=OpenAIModel(GlobalSettings.LLM_EMBEDDING_MODEL,self.debug)
-
+        # self.embedding_model=OpenAIModel(GlobalSettings.LLM_EMBEDDING_MODEL,self.debug)
+        self.embedding_model=TongyiChat(GlobalSettings.LLM_EMBEDDING_MODEL,self.debug)
     def send(self,msg,param)->dict:
         if param is None:
             param={}
